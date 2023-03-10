@@ -133,10 +133,24 @@
                                         <li>
                                             <a href="#"><i class="icon-user"></i></a>
                                             <ul>
-                                                <li><a href="login.html">Sign in</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="account.html">My Account</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                @auth
+                                                    <li><a href="{{route('profile.edit')}}">My Account</a></li>
+                                                    <li>
+                                                        <form method="POST" action="{{ route('logout') }}">
+                                                            @csrf
+                                                            <a href="{{route('logout')}}"
+                                                               onclick="event.preventDefault();
+                                                                         this.closest('form').submit();">
+                                                                {{ __('Logout') }} </i>
+                                                            </a>
+                                                        </form>
+                                                    </li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                @else
+                                                    <li><a href="{{route('login')}}">Sign in</a></li>
+                                                    <li><a href="{{route('register')}}">Register</a></li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                @endauth
                                             </ul>
                                         </li>
                                     </ul>
