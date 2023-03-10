@@ -596,7 +596,6 @@ class ComposerStaticInitee52f07a55a0142ca6bd29daa293b175
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Providers\\VoyagerServiceProvider' => __DIR__ . '/../..' . '/app/Providers/VoyagerServiceProvider.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
         'Arrilot\\Widgets\\AbstractWidget' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AbstractWidget.php',

@@ -38,7 +38,6 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-    'App\\Providers\\VoyagerServiceProvider' => $baseDir . '/app/Providers/VoyagerServiceProvider.php',
     'App\\View\\Components\\AppLayout' => $baseDir . '/app/View/Components/AppLayout.php',
     'App\\View\\Components\\GuestLayout' => $baseDir . '/app/View/Components/GuestLayout.php',
     'Arrilot\\Widgets\\AbstractWidget' => $vendorDir . '/arrilot/laravel-widgets/src/AbstractWidget.php',
