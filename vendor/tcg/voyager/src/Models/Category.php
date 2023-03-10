@@ -2,6 +2,7 @@
 
 namespace TCG\Voyager\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
@@ -26,5 +27,10 @@ class Category extends Model
     public function parentId()
     {
         return $this->belongsTo(self::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }

@@ -43,6 +43,12 @@ return [
 
     'models' => [
        // 'namespace' => 'App\\Models\\',
+        'App\Models\Product' => [
+            'name' => 'Product',
+        ],
+        'TCG\Voyager\Models\Category' => [
+            'name' => 'Category',
+        ],
     ],
 
     /*

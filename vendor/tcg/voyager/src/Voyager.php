@@ -2,6 +2,7 @@
 
 namespace TCG\Voyager;
 
+use App\Models\Product;
 use Arrilot\Widgets\Facade as Widget;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -64,6 +65,7 @@ class Voyager
         'Setting'     => Setting::class,
         'User'        => User::class,
         'Translation' => Translation::class,
+        'Product' => Product::class,
     ];
 
     public $setting_cache = null;
