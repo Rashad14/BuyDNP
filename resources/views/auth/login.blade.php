@@ -73,7 +73,7 @@
                         <p>Add items to your wishlistget personalised recommendations <br>
                             check out more quickly track your orders register</p>
                         <div class="btn-wrapper">
-                            <a href="register.html" class="theme-btn-1 btn black-btn">CREATE ACCOUNT</a>
+                            <a href="{{route('register')}}" class="theme-btn-1 btn black-btn">CREATE ACCOUNT</a>
                         </div>
                     </div>
                 </div>

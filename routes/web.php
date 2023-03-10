@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('home.home');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('profile.edit');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
