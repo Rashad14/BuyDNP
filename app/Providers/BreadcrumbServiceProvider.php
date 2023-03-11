@@ -43,5 +43,10 @@ class BreadcrumbServiceProvider extends ServiceProvider
             $trail->push($category->name, route('category', $category->slug));
         });
 
+        Breadcrumbs::for('product.details', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Product Details', route('product.details'));
+        });
+
     }
 }

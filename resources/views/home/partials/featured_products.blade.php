@@ -13,7 +13,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="ltn__small-product-item">
                         <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{{asset('panel/img/product/1.png')}}" alt="Image"></a>
+                            <a href="product-details.html"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                         </div>
                         <div class="small-product-item-info">
                             <div class="product-ratting">

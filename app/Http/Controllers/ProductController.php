@@ -46,8 +46,14 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+//        return $product;
+//        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
+
+        return view('product.product', [
+            'product' => $product
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

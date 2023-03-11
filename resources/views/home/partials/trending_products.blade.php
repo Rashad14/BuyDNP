@@ -13,7 +13,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="ltn__product-item ltn__product-item-3 text-center">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="{{asset('panel/img/product/4.png')}}" alt="#"></a>
+                        <a href="product-details.html"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge">New</li>

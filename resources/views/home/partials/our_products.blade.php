@@ -33,7 +33,7 @@
                         <div class="col-lg-3--- col-md-4 col-sm-6 col-6">
                         <div class="ltn__product-item ltn__product-item-2 text-left">
                             <div class="product-img">
-                                <a href="product-details.html"><img src="{{asset('panel/img/product/4.png')}}" alt="#"></a>
+                                <a href="{{route('product.details', $product)}}"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                                 <div class="product-badge">
                                     <ul>
                                         <li class="sale-badge">New</li>
@@ -68,7 +68,7 @@
                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                     </ul>
                                 </div>
-                                <h2 class="product-title"><a href="product-details.html">{{$product->name}}</a></h2>
+                                <h2 class="product-title"><a href="{{route('product.details', $product)}}">{{$product->name}}</a></h2>
                                 <div class="product-price">
                                     <span>${{$product->price}}</span>
                                     <del>$46.00</del>
