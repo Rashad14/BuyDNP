@@ -51,6 +51,10 @@
 
     <div class="ltn__utilize-overlay"></div>
 
+    @if (Route::currentRouteName() !== 'home')
+        @include('layouts.partials.breadcrumb')
+    @endif
+
     @yield('content')
 
     <!-- CALL TO ACTION START (call-to-action-6) -->

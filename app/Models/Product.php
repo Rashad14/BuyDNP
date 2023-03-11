@@ -47,6 +47,6 @@ class Product extends Model
 
     public function getPriceAttribute($value)
     {
-        return $this->attributes['price'] = number_format($value / 100, 2, '.', '');
+        return number_format($value / 100, 2);
     }
 }
