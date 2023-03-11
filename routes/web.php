@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
 //| Front Side Routes
 //|--------------------------------------------------------------------------
 
-Route::view('/', 'home.home')->name('home');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::view('/about-us', 'about.about')->name('about');
 Route::view('/shop', 'shop.shop')->name('shop');
 Route::view('/contact-us', 'contact.contact')->name('contact');
