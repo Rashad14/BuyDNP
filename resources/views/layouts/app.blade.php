@@ -32,7 +32,8 @@
 <!-- Add your site or application content here -->
 
 <!-- Body main wrapper start -->
-<div class="body-wrapper">
+<div class="body-wrapper" id="app">
+
     <!-- HEADER AREA START (header-3) -->
     @include('layouts.partials.header')
     <!-- HEADER AREA END -->
@@ -54,6 +55,7 @@
     @if (Route::currentRouteName() !== 'home')
         @include('layouts.partials.breadcrumb')
     @endif
+    <product-component></product-component>
 
     @yield('content')
 
@@ -95,6 +97,8 @@
 <script src="{{asset('panel/js/plugins.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('panel/js/main.js')}}"></script>
+
+@vite('resources/js/app.js')
 
 @yield('js')
 
