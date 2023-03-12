@@ -50,4 +50,4 @@ Route::view('/shop', 'shop.shop')->name('shop');
 Route::view('/contact-us', 'contact.contact')->name('contact');
 
 // Product Page Routes
-Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('product.details');
+Route::get('/product/{slug?}', [\App\Http\Controllers\ProductController::class, 'details'])->name('product.details');

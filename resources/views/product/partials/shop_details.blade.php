@@ -3,64 +3,20 @@
         <div class="col-md-6">
             <div class="ltn__shop-details-img-gallery">
                 <div class="ltn__shop-details-large-img">
-                    <div class="single-large-img">
-                        <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/1.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/2.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/2.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/3.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/3.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/4.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/4.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/5.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/5.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/6.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/6.png" alt="Image">
-                        </a>
-                    </div>
-                    <div class="single-large-img">
-                        <a href="img/product/7.png" data-rel="lightcase:myCollection">
-                            <img src="img/product/7.png" alt="Image">
-                        </a>
-                    </div>
+                    @foreach (json_decode($product->slider_images) as $image)
+                        <div class="single-large-img">
+                            <a href="{{ Storage::url($image) }}" data-rel="lightcase:myCollection">
+                                <img src="{{ Storage::url($image) }}" alt="{{ $product->name }}">
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
                 <div class="ltn__shop-details-small-img slick-arrow-2">
-                    <div class="single-small-img">
-                        <img src="img/product/1.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/2.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/3.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/4.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/5.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/6.png" alt="Image">
-                    </div>
-                    <div class="single-small-img">
-                        <img src="img/product/7.png" alt="Image">
-                    </div>
+                    @foreach (json_decode($product->slider_images) as $image)
+                        <div class="single-small-img">
+                            <img src="{{ Storage::url($image) }}" alt="{{ $product->name }}">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -76,19 +32,17 @@
                         <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
                     </ul>
                 </div>
-                <h3>Hand Sanitizer</h3>
+                <h3>{{$product->name}}</h3>
                 <div class="product-price">
-                    <span>$49.00</span>
+                    <span>${{$product->price}}</span>
                     <del>$65.00</del>
                 </div>
                 <div class="modal-product-meta ltn__product-details-menu-1">
                     <ul>
                         <li>
-                            <strong>Categories:</strong>
+                            <strong>Category:</strong>
                             <span>
-                                <a href="#">face-mask</a>
-                                <a href="#">ppe-kit</a>
-                                <a href="#">safety-suits</a>
+                                <a href="#">{{$product->category->name}}</a>
                             </span>
                         </li>
                     </ul>
@@ -136,10 +90,6 @@
                     </ul>
                 </div>
                 <hr>
-                <div class="ltn__safe-checkout">
-                    <h5>Guaranteed Safe Checkout</h5>
-                    <img src="img/icons/payment-2.png" alt="Payment Image">
-                </div>
             </div>
         </div>
     </div>

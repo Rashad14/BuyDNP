@@ -12,9 +12,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function details($slug)
     {
-        //
+        // Get product by a slug from the products
+        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
+
+        //Get last six related products from the products
+        $related_products = Product::where('category_id', $product->category_id)->latest()->take(6)->get();
+
+        // Get last three products from the products
+        $top_products = Product::latest()->take(3)->get();
+
+        return view('product.product',
+            [
+                'product' => $product,
+                'top_products' => $top_products,
+                'related_products' => $related_products
+            ]);
+
     }
 
     /**
@@ -49,9 +64,9 @@ class ProductController extends Controller
 //        return $product;
 //        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
 
-        return view('product.product', [
-            'product' => $product
-        ]);
+//        return view('product.product', [
+//            'product' => $product
+//        ]);
     }
 
 

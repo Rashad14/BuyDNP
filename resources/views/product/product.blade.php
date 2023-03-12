@@ -18,7 +18,7 @@
                         @include('product.partials.top_rated_product_widget')
                         <!-- Banner Widget -->
                         <div class="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="img/banner/2.jpg" alt="#"></a>
+                            <a href="shop.html"><img src="{{asset('panel/img/banner/2.jpg')}}" alt="#"></a>
                         </div>
                     </aside>
                 </div>
