@@ -55,7 +55,6 @@
     @if (Route::currentRouteName() !== 'home')
         @include('layouts.partials.breadcrumb')
     @endif
-    <product-component></product-component>
 
     @yield('content')
 
