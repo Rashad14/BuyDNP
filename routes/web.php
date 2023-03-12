@@ -40,15 +40,12 @@ Route::group(['prefix' => 'admin'], function () {
 // Home Page Routes
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// About Page Routes
-Route::view('/about-us', 'about.about')->name('about');
-
-// Shop Page Routes
-Route::view('/shop', 'shop.shop')->name('shop');
-
-// Contact Page Routes
-Route::view('/contact-us', 'contact.contact')->name('contact');
+// Static page Routes
+Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
 // Product Routes
-//Route::get('/{slug?}', [\App\Http\Controllers\ProductController::class, 'details'])->name('product.details');
-Route::get('/{catSlug?}/{subCatSlug?}/{slug}', [\App\Http\Controllers\ProductController::class, 'productsByCat'])->name('productsByCat');
+Route::get('/shop', [\App\Http\Controllers\ProductController::class, 'shop'])->name('shop');
+Route::get('/{product?}', [\App\Http\Controllers\ProductController::class, 'details'])->name('product.details');
+Route::get('/category/{category}/{subcategory?}', [\App\Http\Controllers\ProductController::class, 'productsByCat'])->name('products.by.cat');
+

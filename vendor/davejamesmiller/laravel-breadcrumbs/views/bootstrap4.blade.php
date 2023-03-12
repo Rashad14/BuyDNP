@@ -6,7 +6,9 @@
             @if ($breadcrumb->url && !$loop->last)
                 <li class="">
                     <a href="{{ $breadcrumb->url }}">
-                        <span class="ltn__secondary-color"><i class="fas fa-home"></i></span>
+                        <span class="ltn__secondary-color">
+                            @if($loop->first)<i class="fas fa-home"></i>@endif
+                        </span>
                         {{ $breadcrumb->title }}
                     </a>
                 </li>

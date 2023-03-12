@@ -22,4 +22,25 @@ class HomeController extends Controller
             'products' => $products
         ]);
     }
+
+    public function about()
+    {
+        // Generate breadcrumb for about
+        Breadcrumbs::for('about', function ($trail) {
+            $trail->parent('home');
+            $trail->push('About Us', route('about'));
+        });
+
+        return view('about.about');
+    }
+
+    public function contact()
+    {
+        // Generate breadcrumb for contact
+        Breadcrumbs::for('contact', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Contact Us', route('contact'));
+        });
+        return view('contact.contact');
+    }
 }

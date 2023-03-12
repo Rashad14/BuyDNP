@@ -16,7 +16,6 @@ class ProductController extends Controller
      */
     public function details($slug)
     {
-        return 'product';
         // Get product by a slug from the products
         $product = Product::with('category')->where('slug', $slug)->firstOrFail();
 
@@ -32,13 +31,11 @@ class ProductController extends Controller
             $trail->push($product->name, route('product.details', $product->slug));
         });
 
-        return view('product.product',
-            [
+        return view('product.product', [
                 'product' => $product,
                 'top_products' => $top_products,
                 'related_products' => $related_products
             ]);
-
     }
 
     /**
@@ -47,52 +44,62 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function productsByCat($slug, $catSlug = null, $subCatSlug = null)
+    public function productsByCat($category, $subcategory = null)
     {
-        if ($slug) {
-            return  "slug";
-            // Retrieve single product by slug
-            $product = Product::with('category')->where('slug', $slug)->firstOrFail();
-
-            // Generate breadcrumb for single product
-            Breadcrumbs::for('product.details', function ($trail, $product) use ($catSlug, $subCatSlug) {
-                $trail->parent('subcategory', $catSlug, $subCatSlug);
-                $trail->push($product->name, route('productsByCat', [$catSlug, $subCatSlug, $product->slug]));
-            });
-
-            return view('product.product', compact('product'));
-        } elseif ($subCatSlug) {
-            return "subCatSlug";
+        if (!is_null($category) && !is_null($subcategory)) {
             // Retrieve products by subcategory
-            $subcategory = Subcategory::where('slug', $subCatSlug)->firstOrFail();
-            $products = $subcategory->products()->where('is_active', true)->get();
+            $subcategory = Category::where('slug', $subcategory)->firstOrFail();
+            $category = Category::where('slug', $category)->firstOrFail();
+            $products = $subcategory->products()->get();
 
             // Generate breadcrumb for subcategory
-            Breadcrumbs::for('subcategory', function ($trail, $subcategory) use ($catSlug) {
-                $trail->parent('category', $catSlug);
-                $trail->push($subcategory->name, route('productsByCat', [$catSlug, $subcategory->slug]));
+            Breadcrumbs::register('products.by.cat', function ($trail) use ($category, $subcategory) {
+                $trail->push('home', route('home'));
+                $trail->push($category->name, route('products.by.cat', [$category->slug]));
+                $trail->push($subcategory->name, route('products.by.cat', [$subcategory->slug, $subcategory->slug]));
             });
 
-            return view('product.subcategory', compact('products', 'subcategory'));
-        } elseif ($catSlug) {
-            return "catSlug";
+            // Return view for products under subcategory
+            return view('shop.shop', [
+                'products' => $products
+            ]);
+        } else {
             // Retrieve products by category
-            $category = Category::where('slug', $catSlug)->firstOrFail();
-            $products = $category->products()->where('is_active', true)->get();
+            $category = Category::where('slug', $category)->firstOrFail();
+            $products = $category->products()->get();
 
             // Generate breadcrumb for category
-            Breadcrumbs::for('category', function ($trail, $category) {
+            Breadcrumbs::for('products.by.cat', function ($trail) use($category) {
                 $trail->parent('home');
-                $trail->push($category->name, route('productsByCat', $category->slug));
+                $trail->push($category->name, route('products.by.cat', $category->slug));
             });
 
-            return view('product.category', compact('products', 'category'));
-        } else {
-            // Retrieve all active products
-            $products = Product::where('is_active', true)->get();
-
-            return view('product.all', compact('products'));
+            // Return view for products under category
+            return view('shop.shop', [
+                'products' => $products
+            ]);
         }
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function shop()
+    {
+        // Get last six products from the products
+        $products = Product::latest()->take(6)->get();
+
+        // Generate breadcrumb for shop
+        Breadcrumbs::for('shop', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Shop', route('shop'));
+        });
+
+        return view('shop.shop', [
+            'products' => $products
+        ]);
+    }
 }

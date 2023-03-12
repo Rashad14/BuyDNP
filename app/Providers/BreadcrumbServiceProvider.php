@@ -28,15 +28,5 @@ class BreadcrumbServiceProvider extends ServiceProvider
         Breadcrumbs::for('home', function ($trail) {
             $trail->push('Home', route('home'));
         });
-
-        Breadcrumbs::for('about', function ($trail) {
-            $trail->parent('home');
-            $trail->push('About Us', route('about'));
-        });
-
-        Breadcrumbs::for('contact', function ($trail) {
-            $trail->parent('home');
-            $trail->push('Contact Us', route('contact'));
-        });
     }
 }
