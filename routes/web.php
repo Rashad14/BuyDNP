@@ -49,5 +49,6 @@ Route::view('/shop', 'shop.shop')->name('shop');
 // Contact Page Routes
 Route::view('/contact-us', 'contact.contact')->name('contact');
 
-// Product Page Routes
-Route::get('/product/{slug?}', [\App\Http\Controllers\ProductController::class, 'details'])->name('product.details');
+// Product Routes
+//Route::get('/{slug?}', [\App\Http\Controllers\ProductController::class, 'details'])->name('product.details');
+Route::get('/{catSlug?}/{subCatSlug?}/{slug}', [\App\Http\Controllers\ProductController::class, 'productsByCat'])->name('productsByCat');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Category;
 

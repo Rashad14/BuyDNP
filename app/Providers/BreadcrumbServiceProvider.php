@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,16 +38,5 @@ class BreadcrumbServiceProvider extends ServiceProvider
             $trail->parent('home');
             $trail->push('Contact Us', route('contact'));
         });
-
-        Breadcrumbs::for('category', function ($trail, $category) {
-            $trail->parent('home');
-            $trail->push($category->name, route('category', $category->slug));
-        });
-
-        Breadcrumbs::for('product.details', function ($trail) {
-            $trail->parent('home');
-            $trail->push('Product Details', route('product.details'));
-        });
-
     }
 }

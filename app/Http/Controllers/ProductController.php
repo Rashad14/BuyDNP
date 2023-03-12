@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Category;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 class ProductController extends Controller
 {
@@ -14,6 +16,7 @@ class ProductController extends Controller
      */
     public function details($slug)
     {
+        return 'product';
         // Get product by a slug from the products
         $product = Product::with('category')->where('slug', $slug)->firstOrFail();
 
@@ -22,6 +25,12 @@ class ProductController extends Controller
 
         // Get last three products from the products
         $top_products = Product::latest()->take(3)->get();
+
+        // Generate breadcrumb for single product
+        Breadcrumbs::for('product.details', function ($trail) use ($product) {
+            $trail->parent('home');
+            $trail->push($product->name, route('product.details', $product->slug));
+        });
 
         return view('product.product',
             [
@@ -33,74 +42,57 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function productsByCat($slug, $catSlug = null, $subCatSlug = null)
     {
-        //
+        if ($slug) {
+            return  "slug";
+            // Retrieve single product by slug
+            $product = Product::with('category')->where('slug', $slug)->firstOrFail();
+
+            // Generate breadcrumb for single product
+            Breadcrumbs::for('product.details', function ($trail, $product) use ($catSlug, $subCatSlug) {
+                $trail->parent('subcategory', $catSlug, $subCatSlug);
+                $trail->push($product->name, route('productsByCat', [$catSlug, $subCatSlug, $product->slug]));
+            });
+
+            return view('product.product', compact('product'));
+        } elseif ($subCatSlug) {
+            return "subCatSlug";
+            // Retrieve products by subcategory
+            $subcategory = Subcategory::where('slug', $subCatSlug)->firstOrFail();
+            $products = $subcategory->products()->where('is_active', true)->get();
+
+            // Generate breadcrumb for subcategory
+            Breadcrumbs::for('subcategory', function ($trail, $subcategory) use ($catSlug) {
+                $trail->parent('category', $catSlug);
+                $trail->push($subcategory->name, route('productsByCat', [$catSlug, $subcategory->slug]));
+            });
+
+            return view('product.subcategory', compact('products', 'subcategory'));
+        } elseif ($catSlug) {
+            return "catSlug";
+            // Retrieve products by category
+            $category = Category::where('slug', $catSlug)->firstOrFail();
+            $products = $category->products()->where('is_active', true)->get();
+
+            // Generate breadcrumb for category
+            Breadcrumbs::for('category', function ($trail, $category) {
+                $trail->parent('home');
+                $trail->push($category->name, route('productsByCat', $category->slug));
+            });
+
+            return view('product.category', compact('products', 'category'));
+        } else {
+            // Retrieve all active products
+            $products = Product::where('is_active', true)->get();
+
+            return view('product.all', compact('products'));
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-//        return $product;
-//        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
-
-//        return view('product.product', [
-//            'product' => $product
-//        ]);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
 }

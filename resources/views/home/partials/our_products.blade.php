@@ -33,7 +33,7 @@
                         <div class="col-lg-3--- col-md-4 col-sm-6 col-6">
                             <div class="ltn__product-item ltn__product-item-3 text-left">
                                 <div class="product-img">
-                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="#"></a>
+                                    <a href="{{ route('productsByCat', ['catSlug' => '', 'subCatSlug' => '', 'slug' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="#"></a>
                                     <div class="product-badge">
                                         <ul>
                                             <li class="sale-badge">New</li>
