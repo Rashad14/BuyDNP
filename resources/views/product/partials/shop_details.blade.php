@@ -48,19 +48,7 @@
                     </ul>
                 </div>
                 <div class="ltn__product-details-menu-2">
-                    <ul>
-                        <li>
-                            <div class="cart-plus-minus">
-                                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span>ADD TO CART</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <product-details-cart :product='@json($product)'></product-details-cart>
                 </div>
                 <div class="ltn__product-details-menu-3">
                     <ul>

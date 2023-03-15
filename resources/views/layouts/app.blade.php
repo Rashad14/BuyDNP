@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{asset('panel/css/style.css')}}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{asset('panel/css/responsive.css')}}">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{asset('panel/css/custom.css')}}">
 
     @yield('css')
 </head>
@@ -43,7 +45,7 @@
     <!-- MOBILE MENU END -->
 
     <!-- Utilize Cart Menu Start -->
-    @include('layouts.partials.utilize_card_menu')
+    @include('layouts.partials.utilize_cart_menu')
     <!-- Utilize Cart Menu End -->
 
     <!-- Utilize Mobile Menu Start -->
@@ -71,7 +73,7 @@
     <!-- MODAL AREA END -->
 
     <!-- MODAL AREA START (Add To Cart Modal) -->
-    @include('layouts.partials.modal_add_to_card')
+    @include('layouts.partials.modal_add_to_cart')
     <!-- MODAL AREA END -->
 
     <!-- MODAL AREA START (Wishlist Modal) -->

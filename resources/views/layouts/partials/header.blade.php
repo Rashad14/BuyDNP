@@ -158,15 +158,7 @@
                             </li>
                             <li>
                                 <!-- mini-cart 2 -->
-                                <div class="mini-cart-icon mini-cart-icon-2">
-                                    <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
-                                            <span class="mini-cart-icon">
-                                                <i class="icon-shopping-cart"></i>
-                                                <sup>2</sup>
-                                            </span>
-                                        <h6><span>Your Cart</span> <span class="ltn__secondary-color">$89.25</span></h6>
-                                    </a>
-                                </div>
+                                @include('layouts.partials.mini_cart')
                             </li>
                         </ul>
                     </div>

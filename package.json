@@ -20,6 +20,8 @@
         "vue-loader": "^17.0.1"
     },
     "dependencies": {
-        "mitt": "^3.0.0"
+        "mitt": "^3.0.0",
+        "vuex": "^4.1.0",
+        "vuex-persistedstate": "^4.1.0"
     }
 }

@@ -3,3 +3,17 @@
     margin-right: 4px;
     display: inline-block;
 }
+
+.single-small-img img {
+    max-height: 99px;
+}
+
+.product-img img {
+    max-height: 310px;
+}
+.small-product-item-img img{
+    max-height: 105px;
+}
+.qtybutton {
+    cursor: pointer;
+}

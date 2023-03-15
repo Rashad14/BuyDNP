@@ -43,4 +43,14 @@ class HomeController extends Controller
         });
         return view('contact.contact');
     }
+
+    public function wishlist()
+    {
+        // Generate breadcrumb for contact
+        Breadcrumbs::for('wishlist', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Wishlist', route('wishlist'));
+        });
+        return view('wishlist.wishlist');
+    }
 }

@@ -30,14 +30,14 @@
                                                     <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
                                                 </ul>
                                             </div>
-                                            <h3><a href="product-details.html">{{product.name}}</a></h3>
+                                            <h3><a :href="product.slug">{{product.name}}</a></h3>
                                             <div class="product-price">
                                                 <span>${{product.price}}</span>
                                                 <del>$25.00</del>
                                             </div>
                                             <hr>
                                             <div class="modal-product-brief">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus repudiandae incidunt quidem pariatur expedita, quo quis modi tempore non.</p>
+                                                <p v-html="product.description"></p>
                                             </div>
                                             <div class="modal-product-meta ltn__product-details-menu-1 d-none">
                                                 <ul>
@@ -52,20 +52,8 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="ltn__product-details-menu-2 d-none">
-                                                <ul>
-                                                    <li>
-                                                        <div class="cart-plus-minus">
-                                                            <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                                            <i class="fas fa-shopping-cart"></i>
-                                                            <span>ADD TO CART</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                            <div class="ltn__product-details-menu-2">
+                                                <product-details-cart :product="product"></product-details-cart>
                                             </div>
                                             <!-- <hr> -->
                                             <div class="ltn__product-details-menu-3">
