@@ -11,9 +11,15 @@
 .product-img img {
     max-height: 310px;
 }
+
 .small-product-item-img img{
-    max-height: 105px;
+    height: 90px;
 }
+
+.top-rated-product-img{
+    height: 90px;
+}
+
 .qtybutton {
     cursor: pointer;
 }
@@ -36,4 +42,15 @@
 }
 .ltn__add-to-cart-modal-area .modal-product-img {
     max-width: 100px;
+}
+
+.product-title-new {
+    min-height: 36px;
+    max-height: 36px;
+    overflow: hidden;
+}
+
+.product-title-featured, .product-title-our{
+    max-height: 20px;
+    overflow: hidden;
 }

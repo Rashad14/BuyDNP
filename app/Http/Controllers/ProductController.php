@@ -28,6 +28,7 @@ class ProductController extends Controller
         // Generate breadcrumb for single product
         Breadcrumbs::for('product.details', function ($trail) use ($product) {
             $trail->parent('home');
+            $trail->push($product->category->name, route('product.details', $product->category->slug));
             $trail->push($product->name, route('product.details', $product->slug));
         });
 

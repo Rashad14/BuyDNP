@@ -21,15 +21,15 @@
                                     <div class="col-lg-6 col-12">
                                         <div class="modal-product-info">
                                             <div class="product-ratting">
-                                                {{product.brand_name}}
-                                                <ul class="d-none">
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
+                                                <ul class="">
+                                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
                                                 </ul>
+                                                {{product.brand_name}}
+
                                             </div>
                                             <h3><a :href="product.slug">{{product.name}}</a></h3>
                                             <div class="product-price">
@@ -51,7 +51,7 @@
                                                     <li class="mt-0">
                                                         <strong>Availability:</strong>
                                                         <span>
-                                                            <a href="JavaScript:void(0)">Parts</a>
+                                                            <a href="JavaScript:void(0)">{{product.availability ? 'In stock' : 'Out of Stock'}}</a>
                                                         </span>
                                                     </li>
                                                     <li class="mt-0">

@@ -16,19 +16,19 @@
                             <a href="{{ route('product.details', ['product' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                         </div>
                         <div class="small-product-item-info">
-                            <div class="product-ratting d-none">
+                            <div class="product-ratting">
                                 <ul>
                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="{{ route('product.details', ['product' => $product->slug]) }}">{{$product->name}}</a></h2>
+                            <h2 class="product-title product-title-featured"><a href="{{ route('product.details', ['product' => $product->slug]) }}">{{$product->name}}</a></h2>
                             <div class="product-price">
                                 <span>${{$product->price}}</span>
-                                <del class="d-none">$140.00</del>
+                                <del>${{($product->price * 2)}}</del>
                             </div>
                         </div>
                     </div>
