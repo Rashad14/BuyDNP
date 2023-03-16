@@ -33,6 +33,9 @@ const wishlistStore = createStore({
         wishlistProducts: state => {
             return state.wishlist
         },
+        wishlistProductCount: state => {
+            return state.wishlist.length;
+        },
         wishlistTotalPrice: state => {
             return state.wishlist.reduce((total, item) => {
                 return total + (item.quantity * item.price)

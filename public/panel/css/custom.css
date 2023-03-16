@@ -17,3 +17,21 @@
 .qtybutton {
     cursor: pointer;
 }
+.ltn__header-transparent {
+    position: static !important;
+}
+.wishlist-sub {
+    display: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    background-color: var(--ltn__secondary-color);
+    color: var(--white);
+    text-align: center;
+    border-radius: 100%;
+    right: 8px;
+    top: -8px;
+}
+}

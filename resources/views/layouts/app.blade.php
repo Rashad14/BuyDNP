@@ -40,10 +40,6 @@
     @include('layouts.partials.header')
     <!-- HEADER AREA END -->
 
-    <!-- MOBILE MENU START -->
-    @include('layouts.partials.mobile_menu')
-    <!-- MOBILE MENU END -->
-
     <!-- Utilize Cart Menu Start -->
     @include('layouts.partials.utilize_cart_menu')
     <!-- Utilize Cart Menu End -->

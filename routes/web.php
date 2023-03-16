@@ -44,6 +44,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/wishlist', [\App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');
+Route::get('/shopping-cart', [\App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 
 // Product Routes
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, 'shop'])->name('shop');

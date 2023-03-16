@@ -5,7 +5,7 @@
                 <span class="ltn__utilize-menu-title">Cart</span>
                 <button class="ltn__utilize-close">×</button>
             </div>
-            <div class="mini-cart-product-area ltn__scrollbar">
+            <div v-if="cartProducts.length" class="mini-cart-product-area ltn__scrollbar">
                 <div  v-for="(product, index) in cartProducts" :key="product.id" class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
                         <a href="#"><img :src="'storage/' +product.image" alt="Image"></a>
@@ -17,6 +17,7 @@
                     </div>
                 </div>
             </div>
+            <div v-else class="mini-cart-product-area ltn__scrollbar">Your shopping cart is empty!</div>
             <div class="mini-cart-footer">
                 <div class="mini-cart-sub-total">
                     <h5>Subtotal: <span>${{ cartTotalPrice}}</span></h5>

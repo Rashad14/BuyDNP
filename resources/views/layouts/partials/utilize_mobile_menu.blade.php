@@ -2,7 +2,7 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
-                <a href="index.html"><img src="{{asset('panel/img/logo.png')}}" alt="Logo"></a>
+                <a href="{{route('home')}}"><img src="{{asset('panel/img/logo.png')}}" alt="Logo"></a>
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
@@ -21,12 +21,13 @@
                 <li><a href="{{route('shop')}}">Shop</a>
                 </li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
+
             </ul>
         </div>
         <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
             <ul>
                 <li>
-                    <a href="account.html" title="My Account">
+                    <a href="{{auth() ? route('profile.edit') : route('login')}}" title="My Account">
                             <span class="utilize-btn-icon">
                                 <i class="far fa-user"></i>
                             </span>
@@ -34,21 +35,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="wishlist.html" title="Wishlist">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-heart"></i>
-                                <sup>3</sup>
-                            </span>
+                    <a href="{{route('wishlist')}}" title="Wishlist">
+                        <utilize-wishlist></utilize-wishlist>
                         Wishlist
                     </a>
                 </li>
                 <li>
-                    <a href="cart.html" title="Shoping Cart">
-                            <span class="utilize-btn-icon">
-                                <i class="fas fa-shopping-cart"></i>
-                                <sup>5</sup>
-                            </span>
-                        Shoping Cart
+                    <a href="{{route('cart')}}" title="Shopping Cart">
+                        <utilize-cart></utilize-cart>
+                        Shopping Cart
                     </a>
                 </li>
             </ul>

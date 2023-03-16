@@ -14,21 +14,24 @@
                                     <th class="cart-product-quantity">Quantity</th>
                                     <th class="cart-product-subtotal">Subtotal</th>
                                 </thead> -->
-                                <tbody>
-                                <tr v-for="(product, index) in wishlistProducts" :key="product.id">
-                                    <td class="cart-product-remove" @click="removeFromWishlist(index)">x</td>
-                                    <td class="cart-product-image">
-                                        <a :href="product.slug"><img :src="'storage/' +product.image" alt="#"></a>
-                                    </td>
-                                    <td class="cart-product-info">
-                                        <h4><a :href="product.slug">{{product.name}}</a></h4>
-                                    </td>
-                                    <td class="cart-product-price">${{product.price}}</td>
-                                    <td class="cart-product-stock">In Stock</td>
-                                    <td class="cart-product-add-cart">
-                                        <a class="submit-button-1" href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">Add to Cart</a>
-                                    </td>
-                                </tr>
+                                <tbody v-if="wishlistProducts.length">
+                                    <tr v-for="(product, index) in wishlistProducts" :key="product.id">
+                                        <td class="cart-product-remove" @click="removeFromWishlist(index)">x</td>
+                                        <td class="cart-product-image">
+                                            <a :href="product.slug"><img :src="'storage/' +product.image" alt="#"></a>
+                                        </td>
+                                        <td class="cart-product-info">
+                                            <h4><a :href="product.slug">{{product.name}}</a></h4>
+                                        </td>
+                                        <td class="cart-product-price">${{product.price}}</td>
+                                        <td class="cart-product-stock">In Stock</td>
+                                        <td class="cart-product-add-cart">
+                                            <a class="submit-button-1" href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">Add to Cart</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody v-else>
+                                    <tr><td class="text-center">Your wishlist is empty!</td></tr>
                                 </tbody>
                             </table>
                         </div>

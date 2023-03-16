@@ -11,14 +11,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Get all categories with their subcategories
-        $categories = Category::with('children')->whereNull('parent_id')->get();
-
         // Get last six products from the products
         $products = Product::latest()->take(6)->get();
 
         return view('home.home', [
-            'categories' => $categories,
             'products' => $products
         ]);
     }
@@ -52,5 +48,15 @@ class HomeController extends Controller
             $trail->push('Wishlist', route('wishlist'));
         });
         return view('wishlist.wishlist');
+    }
+
+    public function cart()
+    {
+        // Generate breadcrumb for contact
+        Breadcrumbs::for('cart', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Shopping Cart', route('cart'));
+        });
+        return view('cart.cart');
     }
 }

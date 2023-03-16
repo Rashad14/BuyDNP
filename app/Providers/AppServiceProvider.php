@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use Illuminate\Support\ServiceProvider;
+use TCG\Voyager\Models\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Get all categories with their subcategories
+        $categories = Category::with('children')->whereNull('parent_id')->get();
+
+        view()->share('categories', $categories);
     }
 }

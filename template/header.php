@@ -1,6 +1,6 @@
-<header class="ltn__header-area ltn__header-3 section-bg-6---">
+<header class="ltn__header-area ltn__header-3">
     <!-- ltn__header-top-area start -->
-    <div class="ltn__header-top-area border-bottom top-area-color-white---">
+    <div class="ltn__header-top-area border-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="top-bar-right text-end">
+                    <div class="top-bar-right text-right text-end">
                         <div class="ltn__top-bar-menu">
                             <ul>
                                 <li>
@@ -20,7 +20,7 @@
                                     <div class="ltn__drop-menu ltn__currency-menu ltn__language-menu">
                                         <ul>
                                             <li><a href="#" class="dropdown-toggle"><span class="active-currency">English</span></a>
-                                                <ul class="d-none">
+                                                <ul>
                                                     <li><a href="#">Arabic</a></li>
                                                     <li><a href="#">Bengali</a></li>
                                                     <li><a href="#">Chinese</a></li>
@@ -58,15 +58,15 @@
             <div class="row">
                 <div class="col">
                     <div class="site-logo">
-                        <a href="{{route('home')}}"><img src="{{asset('panel/img/logo.png')}}" alt="Logo"></a>
+                        <a href="index.html"><img src="{{asset('panel/img/logo.png')}}" alt="Logo"></a>
                     </div>
                 </div>
-                <div class="col header-contact-serarch-column d-none d-xl-block">
+                <div class="col header-contact-serarch-column d-none d-lg-block">
                     <div class="header-contact-search">
                         <!-- header-feature-item -->
-                        <div class="header-feature-item d-none">
+                        <div class="header-feature-item">
                             <div class="header-feature-icon">
-                                <i class="icon-phone"></i>
+                                <i class="icon-call"></i>
                             </div>
                             <div class="header-feature-info">
                                 <h6>Phone</h6>
@@ -107,9 +107,9 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="d-none--- ">
+                            <li class="d-lg-none">
                                 <!-- header-search-1 -->
-                                <div class="header-search-wrap d-block d-xl-none">
+                                <div class="header-search-wrap">
                                     <div class="header-search-1">
                                         <div class="search-icon">
                                             <i class="icon-search  for-search-show"></i>
@@ -128,7 +128,33 @@
                             </li>
                             <li class="d-none---">
                                 <!-- user-menu -->
-                                @include('layouts.partials.user_menu')
+                                <div class="ltn__drop-menu user-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="icon-user"></i></a>
+                                            <ul>
+                                                @auth
+                                                    <li><a href="{{route('profile.edit')}}">My Account</a></li>
+                                                    <li>
+                                                        <form method="POST" action="{{ route('logout') }}">
+                                                            @csrf
+                                                            <a href="{{route('logout')}}"
+                                                               onclick="event.preventDefault();
+                                                                         this.closest('form').submit();">
+                                                                {{ __('Logout') }} </i>
+                                                            </a>
+                                                        </form>
+                                                    </li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                @else
+                                                    <li><a href="{{route('login')}}">Sign in</a></li>
+                                                    <li><a href="{{route('register')}}">Register</a></li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                @endauth
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li>
                                 <!-- mini-cart 2 -->
@@ -141,38 +167,27 @@
         </div>
     </div>
     <!-- ltn__header-middle-area end -->
-
-    <!-- MOBILE MENU START -->
-    @include('layouts.partials.mobile_menu')
-    <!-- MOBILE MENU END -->
-
     <!-- header-bottom-area start -->
-    <div class="header-bottom-area ltn__border-top--- ltn__header-sticky  ltn__sticky-bg-white ltn__primary-bg---- menu-color-white---- d-none--- d-lg-block">
+    <div class="header-bottom-area ltn__border-top ltn__header-sticky  ltn__sticky-bg-white--- ltn__sticky-bg-secondary ltn__secondary-bg section-bg-1 menu-color-white d-none d-lg-block">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 align-self-center">
-                    <!-- CATEGORY-MENU-LIST START -->
-                    <div class="ltn__category-menu-wrap ltn__category-dropdown-hide ltn__category-menu-with-header-menu">
-                        <div class="ltn__category-menu-title">
-                            <h2 class="section-bg-1--- ltn__secondary-bg text-color-white">categories</h2>
-                        </div>
-                        <div class="ltn__category-menu-toggle ltn__one-line-active">
-                            @include('home.partials.categories')
+                <div class="col header-menu-column justify-content-center">
+                    <div class="sticky-logo">
+                        <div class="site-logo">
+                            <a href="index.html"><img src="{{asset('panel/img/logo-3.png')}}" alt="Logo"></a>
                         </div>
                     </div>
-                    <!-- END CATEGORY-MENU-LIST -->
-                </div>
-                <div class="col-lg-7">
-                    <div class="col--- header-menu-column justify-content-center---">
-                        <div class="header-menu header-menu-2 text-start">
-                            @include('layouts.partials.nav')
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-2 align-self-center d-none d-xl-block">
-                    <div class="header-contact-info text-end">
-                        <a class="font-weight-6 ltn__primary-color" href="tel:+123456789"><span class="ltn__secondary-color"><i class="icon-call font-weight-7"></i></span> +123-456-789-10</a>
+                    <div class="header-menu header-menu-2">
+                        <nav>
+                            <div class="ltn__main-menu">
+                                <ul>
+                                    <li><a href="{{route('home')}}">Home</a></li>
+                                    <li><a href="{{route('about')}}">About</a></li>
+                                    <li><a href="{{route('shop')}}">Shop</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
