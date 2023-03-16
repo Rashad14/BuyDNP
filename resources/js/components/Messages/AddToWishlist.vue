@@ -14,20 +14,20 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="modal-product-img">
-                                            <img src="{{asset('panel/img/product-2/7.png')}}" alt="#">
+                                            <img :src="'storage/' +product.image" :alt="product.name">
                                         </div>
                                         <div class="modal-product-info">
-                                            <h5><a href="product-details.html">{{product.name}}</a></h5>
+                                            <h5><a :href="product.slug">{{product.name}}</a></h5>
                                             <p class="added-cart"><i class="fa fa-check-circle"></i>  Successfully added to your Wishlist</p>
                                             <div class="btn-wrapper">
-                                                <a href="wishlist.html" class="theme-btn-1 btn btn-effect-1">View Wishlist</a>
+                                                <a :href="'/wishlist'" class="theme-btn-1 btn btn-effect-1">View Wishlist</a>
                                             </div>
                                         </div>
                                         <!-- additional-info -->
                                         <div class="additional-info d-none">
                                             <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
                                             <div class="payment-method">
-                                                <img src="{{asset('panel/img/icons/payment.png')}}" alt="#">
+                                                <img :src="'panel/img/icons/payment.png'" alt="#">
                                             </div>
                                         </div>
                                     </div>

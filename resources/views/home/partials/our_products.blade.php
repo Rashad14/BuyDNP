@@ -13,14 +13,14 @@
                     <div class="col-lg-12 col-sm-6">
                         <div class="ltn__banner-item">
                             <div class="ltn__banner-img">
-                                <a href="shop.html"><img src="{{asset('panel/img/banner/11.jpg')}}" alt="Banner Image"></a>
+                                <a href="{{route('shop')}}"><img src="{{asset('panel/img/banner/11.jpg')}}" alt="Banner Image"></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12 col-sm-6">
                         <div class="ltn__banner-item">
                             <div class="ltn__banner-img">
-                                <a href="shop.html"><img src="{{asset('panel/img/banner/12.jpg')}}" alt="Banner Image"></a>
+                                <a href="{{route('shop')}}"><img src="{{asset('panel/img/banner/12.jpg')}}" alt="Banner Image"></a>
                             </div>
                         </div>
                     </div>
@@ -29,11 +29,11 @@
             <div class="col-lg-9">
                 <div class="row ltn__tab-product-slider-one-active--- slick-arrow-1">
                     <!-- ltn__product-item -->
-                    @foreach($products as $product)
+                    @foreach($our_products as $product)
                         <div class="col-lg-3--- col-md-4 col-sm-6 col-6">
                             <div class="ltn__product-item ltn__product-item-3 text-left">
                                 <div class="product-img">
-                                    <a href="{{ route('product.details', ['product' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="#"></a>
+                                    <a href="{{ route('product.details', ['product' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                                     <div class="product-badge">
                                         <ul>
                                             <li class="sale-badge">New</li>
@@ -53,10 +53,10 @@
                                             <li><a href="#"><i class="far fa-star"></i></a></li>
                                         </ul>
                                     </div>
-                                    <h2 class="product-title"><a href="product-details.html">Antiseptic Spray</a></h2>
+                                    <h2 class="product-title"><a href="{{ route('product.details', ['product' => $product->slug]) }}">{{$product->name}}</a></h2>
                                     <div class="product-price">
-                                        <span>$32.00</span>
-                                        <del>$46.00</del>
+                                        <span>${{$product->price}}</span>
+                                        <del class="d-none">$46.00</del>
                                     </div>
                                 </div>
                             </div>

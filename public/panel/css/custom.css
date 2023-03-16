@@ -34,4 +34,6 @@
     right: 8px;
     top: -8px;
 }
+.ltn__add-to-cart-modal-area .modal-product-img {
+    max-width: 100px;
 }

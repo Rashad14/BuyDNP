@@ -21,7 +21,8 @@
                                     <div class="col-lg-6 col-12">
                                         <div class="modal-product-info">
                                             <div class="product-ratting">
-                                                <ul>
+                                                {{product.brand_name}}
+                                                <ul class="d-none">
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -33,21 +34,30 @@
                                             <h3><a :href="product.slug">{{product.name}}</a></h3>
                                             <div class="product-price">
                                                 <span>${{product.price}}</span>
-                                                <del>$25.00</del>
+                                                <del class="d-none">$25.00</del>
                                             </div>
                                             <hr>
-                                            <div class="modal-product-brief">
+                                            <div class="modal-product-brief d-none">
                                                 <p v-html="product.description"></p>
                                             </div>
-                                            <div class="modal-product-meta ltn__product-details-menu-1 d-none">
+                                            <div class="modal-product-meta ltn__product-details-menu-1">
                                                 <ul>
                                                     <li>
-                                                        <strong>Categories:</strong>
+                                                        <strong>Product Code:</strong>
                                                         <span>
-                                                            <a href="#">Parts</a>
-                                                            <a href="#">Car</a>
-                                                            <a href="#">Seat</a>
-                                                            <a href="#">Cover</a>
+                                                            <a href="JavaScript:void(0)">{{product.product_code}}</a>
+                                                        </span>
+                                                    </li>
+                                                    <li class="mt-0">
+                                                        <strong>Availability:</strong>
+                                                        <span>
+                                                            <a href="JavaScript:void(0)">Parts</a>
+                                                        </span>
+                                                    </li>
+                                                    <li class="mt-0">
+                                                        <strong>Categorie:</strong>
+                                                        <span>
+                                                            <a :href="'category/' +product.category.slug">{{product.category.name}}</a>
                                                         </span>
                                                     </li>
                                                 </ul>
@@ -59,13 +69,10 @@
                                             <div class="ltn__product-details-menu-3">
                                                 <ul>
                                                     <li>
-                                                        <a href="#" class="" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                                            <i class="far fa-heart"></i>
-                                                            <span>Add to Wishlist</span>
-                                                        </a>
+                                                        <add-product-to-wishlist :product="product"></add-product-to-wishlist>
                                                     </li>
                                                     <li>
-                                                        <a href="#" class="" title="Compare" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                        <a href="#" class="d-none" title="Compare" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
                                                             <i class="fas fa-exchange-alt"></i>
                                                             <span>Compare</span>
                                                         </a>
@@ -83,7 +90,7 @@
 
                                                 </ul>
                                             </div>
-                                            <label class="float-end mb-0"><a class="text-decoration" href="product-details.html"><small>View Details</small></a></label>
+                                            <label class="float-end mb-0"><a class="text-decoration" :href="product.slug"><small>View Details</small></a></label>
                                         </div>
                                     </div>
                                 </div>

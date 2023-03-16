@@ -38,6 +38,8 @@ export default {
         addToCart(product) {
             this.$store.commit('addToCart', product);
 
+            // set the product data in the modal
+            this.$bus.emit('addToCartProduct', product);
             // open the quick view modal
             $('#add_to_cart_modal').modal('show');
         },

@@ -4,10 +4,11 @@ import store from './store/cart'
 import bus from './event-bus'
 
 // ProductHoverActions components
-import ProductHoverAction from './components/ProductHoverActions/ProductHoverAction.vue'
-import QuickViewProduct from "./components/ProductHoverActions/QuickViewProduct.vue"
+import AddProductToWishlist from './components/ProductHoverActions/AddToWishlist.vue';
+import ProductHoverAction from './components/ProductHoverActions/ProductHoverAction.vue';
+import QuickViewProduct from "./components/ProductHoverActions/QuickViewProduct.vue";
 import UtilizeWishlist from "./components/ProductHoverActions/UtilizeWishlist.vue";
-import Wishlist from './components/ProductHoverActions/Wishlist.vue'
+import Wishlist from './components/ProductHoverActions/Wishlist.vue';
 
 // Messages components
 import AddToCart from "./components/Messages/AddToCart.vue";
@@ -23,6 +24,7 @@ import MiniCart from "./components/Cart/MiniCart.vue";
 const app = createApp({})
 
 // Product Hover Actions Components
+app.component('add-product-to-wishlist', AddProductToWishlist)
 app.component('product-hover-action', ProductHoverAction)
 app.component('quick-view-product', QuickViewProduct)
 app.component('utilize-wishlist', UtilizeWishlist)

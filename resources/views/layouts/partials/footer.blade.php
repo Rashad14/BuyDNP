@@ -52,10 +52,10 @@
                         <h4 class="footer-title">Company</h4>
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="shop.html">All Products</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="{{route('contact')}}">Contact us</a></li>
+                                <li><a href="{{route('about')}}">About us</a></li>
+                                <li><a href="{{route('faq')}}">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,9 +65,10 @@
                         <h4 class="footer-title">Services</h4>
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="order-tracking.html">Order tracking</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
-                                <li><a href="wishlist.html">Compare</a></li>
+                                <li><a href="{{route('shop')}}">All Products</a></li>
+                                <li><a href="{{route('wishlist')}}">Wish List</a></li>
+                                <li><a href="{{route('cart')}}">Cart</a></li>
+                                <li><a href="{{route('shop')}}">Shop</a></li>
                             </ul>
                         </div>
                     </div>
@@ -77,8 +78,9 @@
                         <h4 class="footer-title">Customer Care</h4>
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="account.html">My account</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                <li><a href="{{route('profile.edit')}}">My Account</a></li>
+                                <li><a href="#">Payment</a></li>
+                                <li><a href="#">Shipping</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,10 +93,10 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="ltn__copyright-design clearfix">
-                        <p>All Rights Reserved @ Company <span class="current-year"></span></p>
+                        <p>All Rights Reserved @ <span class="current-year"></span></p>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 align-self-center">
+                <div class="col-md-6 col-12 align-self-center d-none">
                     <div class="ltn__copyright-menu text-end">
                         <ul>
                             <li><a href="#">Terms & Conditions</a></li>

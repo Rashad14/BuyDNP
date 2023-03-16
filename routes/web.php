@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Static page Routes
+Route::get('/faq', [\App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/wishlist', [\App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');

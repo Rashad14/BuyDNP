@@ -31,8 +31,6 @@ export default {
     },
 
     methods: {
-        $wishlistStore: undefined,
-
         openQuickViewModal(product) {
             // set the product data in the modal
             this.$bus.emit('quickViewProduct', product);

@@ -4,19 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
-use Illuminate\Http\Request;
-use TCG\Voyager\Models\Category;
 
 class HomeController extends Controller
 {
     public function index()
     {
         // Get last six products from the products
-        $products = Product::latest()->take(6)->get();
+        $our_products = Product::with('category')->latest()->take(6)->get();
+
+        // Get random nine products from the products
+        $trending_products = Product::with('category')->inRandomOrder()->take(9)->get();
+
+        // Get random nine products from the products
+        $featured_products = Product::with('category')->inRandomOrder()->take(9)->get();
 
         return view('home.home', [
-            'products' => $products
+            'our_products' => $our_products,
+            'trending_products' => $trending_products,
+            'featured_products' => $featured_products,
         ]);
+    }
+
+    public function faq()
+    {
+        // Generate breadcrumb for about
+        Breadcrumbs::for('faq', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Frequently asked questions', route('faq'));
+        });
+
+        return view('faq.faq');
     }
 
     public function about()

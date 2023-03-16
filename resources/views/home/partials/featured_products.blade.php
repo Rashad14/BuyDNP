@@ -9,14 +9,14 @@
         </div>
         <div class="row">
             <!-- small-product-item -->
-            @foreach($products as $product)
+            @foreach($featured_products as $product)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="ltn__small-product-item">
                         <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
+                            <a href="{{ route('product.details', ['product' => $product->slug]) }}"><img src="{{Storage::url($product->image)}}" alt="{{$product->name}}"></a>
                         </div>
                         <div class="small-product-item-info">
-                            <div class="product-ratting">
+                            <div class="product-ratting d-none">
                                 <ul>
                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -25,10 +25,10 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">{{$product->name}}</a></h2>
+                            <h2 class="product-title"><a href="{{ route('product.details', ['product' => $product->slug]) }}">{{$product->name}}</a></h2>
                             <div class="product-price">
                                 <span>${{$product->price}}</span>
-                                <del>$140.00</del>
+                                <del class="d-none">$140.00</del>
                             </div>
                         </div>
                     </div>
