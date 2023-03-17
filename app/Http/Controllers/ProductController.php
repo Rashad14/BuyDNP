@@ -95,7 +95,7 @@ class ProductController extends Controller
     public function shop()
     {
         // Get last six products from the products
-        $products = Product::with('category')->paginate(12);
+        $products = Product::with('category')->paginate(2);
 
         // Generate breadcrumb for shop
         Breadcrumbs::for('shop', function ($trail) {

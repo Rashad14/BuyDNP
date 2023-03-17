@@ -39,10 +39,10 @@
                         </div>
                         <div class="ltn__social-media mt-20">
                             <ul>
-                                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="Javascript:void(0)" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="Javascript:void(0)" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="Javascript:void(0)" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="Javascript:void(0)" title="Youtube"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <h4 class="footer-title">Company</h4>
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="Javascript:void(0)">Terms & Conditions</a></li>
                                 <li><a href="{{route('contact')}}">Contact us</a></li>
                                 <li><a href="{{route('about')}}">About us</a></li>
                                 <li><a href="{{route('faq')}}">FAQ</a></li>
@@ -79,8 +79,8 @@
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="{{route('profile.edit')}}">My Account</a></li>
-                                <li><a href="#">Payment</a></li>
-                                <li><a href="#">Shipping</a></li>
+                                <li><a href="Javascript:void(0)">Payment</a></li>
+                                <li><a href="Javascript:void(0)">Shipping</a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,9 +99,9 @@
                 <div class="col-md-6 col-12 align-self-center d-none">
                     <div class="ltn__copyright-menu text-end">
                         <ul>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Claim</a></li>
-                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="Javascript:void(0)">Terms & Conditions</a></li>
+                            <li><a href="Javascript:void(0)">Claim</a></li>
+                            <li><a href="Javascript:void(0)">Privacy & Policy</a></li>
                         </ul>
                     </div>
                 </div>
