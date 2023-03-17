@@ -63,3 +63,7 @@ body {
     max-height: 20px;
     overflow: hidden;
 }
+
+.product-img-grid img {
+    max-height: none;
+}
