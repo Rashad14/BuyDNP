@@ -7,7 +7,7 @@
     <div class="tab-content">
         <div class="tab-pane fade active show" id="liton_tab_details_1_1">
             <div class="ltn__shop-details-tab-content-inner">
-                <h4 class="title-2">Lorem ipsum dolor sit amet elit.</h4>
+                <h4 class="title-2">{{$firstSentence}}</h4>
                 <p>{!! $product->description !!}</p>
             </div>
         </div>

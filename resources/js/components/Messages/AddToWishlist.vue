@@ -17,7 +17,7 @@
                                             <img :src="'storage/' +product.image" :alt="product.name">
                                         </div>
                                         <div class="modal-product-info">
-                                            <h5><a :href="product.slug">{{product.name}}</a></h5>
+                                            <h6><a :href="product.slug">{{product.name}}</a></h6>
                                             <p class="added-cart"><i class="fa fa-check-circle"></i>  Successfully added to your Wishlist</p>
                                             <div class="btn-wrapper">
                                                 <a :href="'/wishlist'" class="theme-btn-1 btn btn-effect-1">View Wishlist</a>

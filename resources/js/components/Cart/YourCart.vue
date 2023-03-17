@@ -8,11 +8,11 @@
             <div v-if="cartProducts.length" class="mini-cart-product-area ltn__scrollbar">
                 <div  v-for="(product, index) in cartProducts" :key="product.id" class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img :src="'storage/' +product.image" alt="Image"></a>
+                        <a :href="product.slug"><img :src="'storage/' +product.image" :alt="product.name"></a>
                         <span class="mini-cart-item-delete"><i class="icon-cancel" @click="removeFromCart(index)"></i></span>
                     </div>
                     <div class="mini-cart-info">
-                        <h6><a href="#">{{ product.name }}</a></h6>
+                        <h6><a :href="product.slug">{{ product.name }}</a></h6>
                         <span class="mini-cart-quantity">{{product.quantity}} x ${{product.price}}</span>
                     </div>
                 </div>
@@ -23,8 +23,8 @@
                     <h5>Subtotal: <span>${{ cartTotalPrice}}</span></h5>
                 </div>
                 <div class="btn-wrapper">
-                    <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
-                    <a href="cart.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                    <a :href="'shopping-cart'" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                    <a :href="'checkout'" class="theme-btn-2 btn btn-effect-2">Checkout</a>
                 </div>
                 <p>Free Shipping on All Orders Over $100!</p>
             </div>
@@ -43,7 +43,7 @@ export default {
             return this.$store.getters.cartItemCount;
         },
         cartTotalPrice() {
-            return this.$store.getters.cartTotalPrice;
+            return this.$store.getters.cartTotalPrice.toFixed(2);
         },
         cartProducts() {
             return this.$store.getters.cartProducts

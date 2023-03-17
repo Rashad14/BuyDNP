@@ -24,9 +24,9 @@
                                             <h4><a :href="product.slug">{{product.name}}</a></h4>
                                         </td>
                                         <td class="cart-product-price">${{product.price}}</td>
-                                        <td class="cart-product-stock">In Stock</td>
+                                        <td class="cart-product-stock">{{product.availability ? 'In Stock' : 'Out of Stock'}}</td>
                                         <td class="cart-product-add-cart">
-                                            <a class="submit-button-1" href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">Add to Cart</a>
+                                            <a class="submit-button-1" href="#" title="Add to Cart" @click.prevent="addToCart(product)">Add to Cart</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -56,7 +56,16 @@ export default {
     methods: {
         removeFromWishlist(index) {
             this.$wishlistStore.commit('removeFromWishlist', index)
-        }
+        },
+        addToCart(product) {
+            this.$store.commit('addToCart', product);
+
+            // set the product data in the modal
+            this.$bus.emit('addToCartProduct', product);
+
+            // open the quick view modal
+            $('#add_to_cart_modal').modal('show');
+        },
     }
 }
 </script>

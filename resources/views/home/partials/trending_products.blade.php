@@ -26,11 +26,11 @@
                         <div class="product-info">
                             <div class="product-ratting">
                                 <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="Javascript:void(0)"><i class="fas fa-star"></i></a></li>
                                 </ul>
                             </div>
                             <h2 class="product-title product-title-new"><a href="{{ route('product.details', ['product' => $product->slug]) }}">{{$product->name}}</a></h2>

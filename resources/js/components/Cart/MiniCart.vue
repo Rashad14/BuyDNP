@@ -18,7 +18,7 @@ export default {
             return this.$store.getters.cartItemCount;
         },
         cartTotalPrice() {
-            return this.$store.getters.cartTotalPrice;
+            return this.$store.getters.cartTotalPrice.toFixed(2);
         }
     }
 }

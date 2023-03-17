@@ -27,22 +27,34 @@
                         <li><a href="#"><i class="fas fa-star"></i></a></li>
                         <li><a href="#"><i class="fas fa-star"></i></a></li>
                         <li><a href="#"><i class="fas fa-star"></i></a></li>
-                        <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                        <li><a href="#"><i class="far fa-star"></i></a></li>
-                        <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                        <li class="d-block text-black-50"><a href="Javascript:void(0)">{{$product->brand_name}}</a></li>
                     </ul>
                 </div>
-                <h3>{{$product->name}}</h3>
+                <h4>{{$product->name}}</h4>
                 <div class="product-price">
                     <span>${{$product->price}}</span>
-                    <del>$65.00</del>
+                    <del>${{$product->price * 2}}</del>
                 </div>
                 <div class="modal-product-meta ltn__product-details-menu-1">
                     <ul>
                         <li>
+                            <strong>Product Code:</strong>
+                            <span>
+                                <a href="JavaScript:void(0)">{{$product->product_code}}</a>
+                            </span>
+                        </li>
+                        <li class="mt-0">
+                            <strong>Availability:</strong>
+                            <span>
+                                <a href="JavaScript:void(0)">{{$product->availability ? 'In stock' : 'Out of Stock'}}</a>
+                            </span>
+                        </li>
+                        <li class="mt-0">
                             <strong>Category:</strong>
                             <span>
-                                <a href="#">{{$product->category->name}}</a>
+                                <a href="{{route('products.by.cat', ['category' => $product->category->slug])}}">{{$product->category->name}}</a>
                             </span>
                         </li>
                     </ul>
@@ -53,12 +65,9 @@
                 <div class="ltn__product-details-menu-3">
                     <ul>
                         <li>
-                            <a href="#" class="" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                <i class="far fa-heart"></i>
-                                <span>Add to Wishlist</span>
-                            </a>
+                            <add-product-to-wishlist :product='@json($product)'></add-product-to-wishlist>
                         </li>
-                        <li>
+                        <li class="d-none">
                             <a href="#" class="" title="Compare" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
                                 <i class="fas fa-exchange-alt"></i>
                                 <span>Compare</span>

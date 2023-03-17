@@ -34,7 +34,7 @@
                                             <h3><a :href="product.slug">{{product.name}}</a></h3>
                                             <div class="product-price">
                                                 <span>${{product.price}}</span>
-                                                <del class="d-none">$25.00</del>
+                                                <del>${{product.price * 2}}</del>
                                             </div>
                                             <hr>
                                             <div class="modal-product-brief d-none">

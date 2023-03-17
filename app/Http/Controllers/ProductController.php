@@ -19,8 +19,11 @@ class ProductController extends Controller
         // Get product by a slug from the products
         $product = Product::with('category')->where('slug', $slug)->firstOrFail();
 
+        // Get product description from the product
+        $firstSentence = self::description($product->description);
+
         //Get last six related products from the products
-        $related_products = Product::where('category_id', $product->category_id)->latest()->take(6)->get();
+        $related_products = Product::with('category')->where('category_id', $product->category_id)->latest()->take(6)->get();
 
         // Get last three products from the products
         $top_products = Product::latest()->take(3)->get();
@@ -28,12 +31,13 @@ class ProductController extends Controller
         // Generate breadcrumb for single product
         Breadcrumbs::for('product.details', function ($trail) use ($product) {
             $trail->parent('home');
-            $trail->push($product->category->name, route('product.details', $product->category->slug));
+            $trail->push($product->category->name, route('products.by.cat', $product->category->slug));
             $trail->push($product->name, route('product.details', $product->slug));
         });
 
         return view('product.product', [
                 'product' => $product,
+                'firstSentence' => $firstSentence,
                 'top_products' => $top_products,
                 'related_products' => $related_products
             ]);
@@ -102,5 +106,31 @@ class ProductController extends Controller
         return view('shop.shop', [
             'products' => $products
         ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function description($htmlDescription)
+    {
+        // Remove HTML tags from the description
+        $description = strip_tags($htmlDescription);
+
+        // Find the first sentence
+        $firstSentence = strstr($description, '.', true);
+
+        if ($firstSentence) {
+            // Found the end of the first sentence
+            $firstSentence .= '.';
+        } else {
+            // The description does not contain a period, so assume the whole description is the first sentence
+            $firstSentence = $description;
+        }
+
+        return $firstSentence; // Output: This is the first sentence.
+
     }
 }
