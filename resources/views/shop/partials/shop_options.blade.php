@@ -10,18 +10,18 @@
         </li>
         <li>
             <div class="short-by text-center">
-                <select class="nice-select">
-                    <option>Default sorting</option>
-                    <option>Sort by popularity</option>
-                    <option>Sort by new arrivals</option>
-                    <option>Sort by price: low to high</option>
-                    <option>Sort by price: high to low</option>
-                </select>
+                <form action="{{ route('shop') }}" method="GET" id="sort-form">
+                    <select name="sort" id="sort">
+                        <option value="default">Default sorting</option>
+                        <option value="low_high" {{ $sortOption == 'low_high' ? 'selected' : '' }}>Sort by price: low to high</option>
+                        <option value="high_low" {{ $sortOption == 'high_low' ? 'selected' : '' }}>Sort by price: high to low</option>
+                    </select>
+                </form>
             </div>
         </li>
         <li>
             <div class="showing-product-number text-right">
-                <span>Showing 9 of 20 results</span>
+                <span>Showing {{$products->count() }} of {{$products->total()}} results</span>
             </div>
         </li>
     </ul>

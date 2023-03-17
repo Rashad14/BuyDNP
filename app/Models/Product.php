@@ -48,4 +48,10 @@ class Product extends Model
     {
         return number_format($value / 100, 2);
     }
+
+    // Define the scope function to sort products
+    public function scopeSortByPrice($query, $direction = 'asc')
+    {
+        return $query->orderBy('price', $direction);
+    }
 }

@@ -92,10 +92,29 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function shop()
+    public function shop(Request $request)
     {
-        // Get last six products from the products
-        $products = Product::with('category')->paginate(2);
+        // Get the selected sorting option from the request
+        $sortOption = $request->input('sort');
+
+        // Get the products query with the selected sorting option applied
+        $productsQuery = Product::with('category');
+
+        switch ($sortOption) {
+            case 'low_high':
+                $productsQuery->sortByPrice('asc');
+                break;
+            case 'high_low':
+                $productsQuery->sortByPrice('desc');
+                break;
+            default:
+                // Default sorting (by ID)
+                $productsQuery->orderBy('id', 'desc');
+                break;
+        }
+
+        // Get the paginated products with the selected sorting option applied
+        $products = $productsQuery->paginate(12);
 
         // Generate breadcrumb for shop
         Breadcrumbs::for('shop', function ($trail) {
@@ -103,8 +122,10 @@ class ProductController extends Controller
             $trail->push('Shop', route('shop'));
         });
 
+        // Pass the sorting option to the view
         return view('shop.shop', [
-            'products' => $products
+            'products' => $products,
+            'sortOption' => $sortOption
         ]);
     }
 

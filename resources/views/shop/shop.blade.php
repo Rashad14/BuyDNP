@@ -26,3 +26,25 @@
     </div>
     <!-- PRODUCT DETAILS AREA END -->
 @endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            const $sortSelect = $('#sort');
+            const $niceSelect = $('.nice-select');
+
+            // Listen for clicks on the custom widget
+            $niceSelect.on('click', '.option', function() {
+                // Get the selected option
+                const $selectedOption = $(this);
+
+                // Update the original select element's value
+                $sortSelect.val($selectedOption.data('value'));
+
+                // Submit the form
+                $('#sort-form').submit();
+            });
+        });
+    </script>
+
+@endsection
