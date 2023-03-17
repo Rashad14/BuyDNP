@@ -109,7 +109,7 @@ class ProductController extends Controller
                 break;
             default:
                 // Default sorting (by ID)
-                $productsQuery->orderBy('id', 'desc');
+                $productsQuery->orderBy('category_id', 'desc');
                 break;
         }
 

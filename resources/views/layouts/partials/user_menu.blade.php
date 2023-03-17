@@ -1,7 +1,7 @@
 <div class="ltn__drop-menu user-menu">
     <ul>
         <li>
-            <a href="#"><i class="icon-user"></i></a>
+            <a href="javascript:void(0)"><i class="icon-user"></i></a>
             <ul>
                 @auth()
                     <li><a href="{{route('profile.edit')}}">My Account</a></li>

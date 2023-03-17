@@ -11,25 +11,25 @@
                     <th class="cart-product-subtotal">Subtotal</th>
                 </thead> -->
                 <tbody v-if="cartProducts.length">
-                <tr  v-for="(product, index) in cartProducts" :key="product.id">
-                    <td class="cart-product-remove" @click="removeFromCart(index)">x</td>
-                    <td class="cart-product-image">
-                        <a :href="product.slug"><img :src="'storage/' +product.image" :alt="product.name"></a>
-                    </td>
-                    <td class="cart-product-info">
-                        <h4><a :href="product.slug">{{product.name}}</a></h4>
-                    </td>
-                    <td class="cart-product-price">${{product.price}}</td>
-                    <td class="cart-product-quantity">
-                        <div class="cart-plus-minus">
-                            <div class="dec qtybutton" @click="decrementQuantity(product)">-</div>
-                            <input type="text" name="qtybutton" class="cart-plus-minus-box" :value="product.quantity" readonly>
-                            <div class="inc qtybutton" @click.prevent="addToCart(product)">+</div>
-                        </div>
-                    </td>
-                    <td class="cart-product-subtotal">${{(product.quantity * product.price).toFixed(2)}}</td>
-                </tr>
-                <tr class="cart-coupon-row d-none">
+                    <tr  v-for="(product, index) in cartProducts" :key="product.id">
+                        <td class="cart-product-remove" @click="removeFromCart(index)">x</td>
+                        <td class="cart-product-image">
+                            <a :href="product.slug"><img :src="'storage/' +product.image" :alt="product.name"></a>
+                        </td>
+                        <td class="cart-product-info">
+                            <h4><a :href="product.slug">{{product.name}}</a></h4>
+                        </td>
+                        <td class="cart-product-price">${{product.price}}</td>
+                        <td class="cart-product-quantity">
+                            <div class="cart-plus-minus">
+                                <div class="dec qtybutton" @click="decrementQuantity(product)">-</div>
+                                <input type="text" name="qtybutton" class="cart-plus-minus-box" :value="product.quantity" readonly>
+                                <div class="inc qtybutton" @click.prevent="addToCart(product)">+</div>
+                            </div>
+                        </td>
+                        <td class="cart-product-subtotal">${{(product.quantity * product.price).toFixed(2)}}</td>
+                    </tr>
+                    <tr class="cart-coupon-row d-none">
                     <td colspan="6">
                         <div class="cart-coupon">
                             <input type="text" name="cart-coupon" placeholder="Coupon code">
@@ -40,6 +40,11 @@
                         <button type="submit" class="btn theme-btn-2 btn-effect-2-- disabled">Update Cart</button>
                     </td>
                 </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td class="text-center">Your shopping cart is empty!</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
