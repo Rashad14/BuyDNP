@@ -14,15 +14,11 @@
         </div>
         <div class="ltn__utilize-menu">
             <ul>
-                <li><a href="{{route('home')}}">Home</a>
-                </li>
-                <li><a href="{{route('about')}}">About</a>
-                </li>
-                <li><a href="{{route('shop')}}">Shop</a>
-                </li>
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li><a href="{{route('about')}}">About</a></li>
+                <li><a href="{{route('shop')}}">Shop</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
                 <li><a href="javascript:void(0)">Payment</a></li>
-
             </ul>
         </div>
         <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
@@ -51,10 +47,10 @@
         </div>
         <div class="ltn__social-media-2">
             <ul>
-                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="javascript:void(0)" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="javascript:void(0)" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="javascript:void(0)" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="javascript:void(0)" title="Instagram"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>
