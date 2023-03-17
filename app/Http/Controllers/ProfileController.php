@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        // Generate breadcrumb for profile
+        Breadcrumbs::for('profile.edit', function ($trail) {
+            $trail->parent('home');
+            $trail->push('My account', route('profile.edit'));
+        });
+
         return view('profile.edit', [
             'user' => $request->user(),
         ]);

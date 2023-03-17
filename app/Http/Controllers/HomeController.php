@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function faq()
+    public function faq():View
     {
         // Generate breadcrumb for about
         Breadcrumbs::for('faq', function ($trail) {
@@ -36,7 +37,7 @@ class HomeController extends Controller
         return view('faq.faq');
     }
 
-    public function about()
+    public function about(): View
     {
         // Generate breadcrumb for about
         Breadcrumbs::for('about', function ($trail) {
@@ -47,7 +48,7 @@ class HomeController extends Controller
         return view('about.about');
     }
 
-    public function contact()
+    public function contact(): View
     {
         // Generate breadcrumb for contact
         Breadcrumbs::for('contact', function ($trail) {
@@ -57,7 +58,7 @@ class HomeController extends Controller
         return view('contact.contact');
     }
 
-    public function wishlist()
+    public function wishlist(): View
     {
         // Generate breadcrumb for contact
         Breadcrumbs::for('wishlist', function ($trail) {
@@ -67,7 +68,7 @@ class HomeController extends Controller
         return view('wishlist.wishlist');
     }
 
-    public function cart()
+    public function cart(): View
     {
         // Generate breadcrumb for contact
         Breadcrumbs::for('cart', function ($trail) {

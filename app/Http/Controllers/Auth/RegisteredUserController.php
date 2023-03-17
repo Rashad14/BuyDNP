@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,6 +21,12 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        // Generate breadcrumb for register
+        Breadcrumbs::for('register', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Register', route('register'));
+        });
+
         return view('auth.register');
     }
 

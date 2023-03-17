@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -15,6 +16,12 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
+        // Generate breadcrumb for Forgot Password
+        Breadcrumbs::for('password.request', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Forgot Password', route('password.request'));
+        });
+
         return view('auth.forgot-password');
     }
 
