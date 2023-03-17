@@ -6,8 +6,7 @@
                 <div class="col-md-7">
                     <div class="ltn__top-bar-menu">
                         <ul>
-                            <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
-                            <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                            <li><a href="mailto:buydnpUK@proton.me"><i class="icon-mail"></i>buydnpUK@proton.me</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,7 +18,7 @@
                                     <!-- ltn__language-menu -->
                                     <div class="ltn__drop-menu ltn__currency-menu ltn__language-menu">
                                         <ul>
-                                            <li><a href="#" class="dropdown-toggle"><span class="active-currency">English</span></a>
+                                            <li><a href="javascript:void(0)" class="dropdown-toggle"><span class="active-currency">English</span></a>
                                                 <ul class="d-none">
                                                     <li><a href="#">Arabic</a></li>
                                                     <li><a href="#">Bengali</a></li>
@@ -171,8 +170,11 @@
 
                 </div>
                 <div class="col-lg-2 align-self-center d-none d-xl-block">
-                    <div class="header-contact-info text-end">
-                        <a class="font-weight-6 ltn__primary-color" href="tel:+123456789"><span class="ltn__secondary-color"><i class="icon-call font-weight-7"></i></span> +123-456-789-10</a>
+                    <div class="header-contact-info">
+                        <a href="{{route('wishlist')}}" title="Wishlist" class="font-weight-6 ltn__primary-color font-size-16">
+                            <utilize-wishlist></utilize-wishlist>
+                            Wishlist
+                        </a>
                     </div>
                 </div>
             </div>

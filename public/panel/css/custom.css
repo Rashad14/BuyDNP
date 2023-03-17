@@ -67,3 +67,7 @@ body {
 .product-img-grid img {
     max-height: none;
 }
+
+.font-size-16 {
+    font-size: 16px;
+}

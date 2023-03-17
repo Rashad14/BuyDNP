@@ -13,26 +13,10 @@
                             <ul>
                                 <li>
                                     <div class="footer-address-icon">
-                                        <i class="icon-placeholder"></i>
-                                    </div>
-                                    <div class="footer-address-info">
-                                        <p>Brooklyn, New York, United States</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer-address-icon">
-                                        <i class="icon-call"></i>
-                                    </div>
-                                    <div class="footer-address-info">
-                                        <p><a href="tel:+0123-456789">+0123-456789</a></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer-address-icon">
                                         <i class="icon-mail"></i>
                                     </div>
                                     <div class="footer-address-info">
-                                        <p><a href="mailto:example@example.com">example@example.com</a></p>
+                                        <p><a href="mailto:buydnpUK@proton.me">buydnpUK@proton.me</a></p>
                                     </div>
                                 </li>
                             </ul>
