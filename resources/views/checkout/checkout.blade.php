@@ -15,16 +15,7 @@
                                         <div class="col-lg-4 col-md-6">
                                             <h6>Country</h6>
                                             <div class="input-item">
-                                                <select class="nice-select">
-                                                    <option>Select Country</option>
-                                                    <option>Australia</option>
-                                                    <option>Canada</option>
-                                                    <option>China</option>
-                                                    <option>Morocco</option>
-                                                    <option>Saudi Arabia</option>
-                                                    <option>United Kingdom (UK)</option>
-                                                    <option>United States (US)</option>
-                                                </select>
+                                                <input type="text" placeholder="Country">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
