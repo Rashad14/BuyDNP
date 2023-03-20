@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
-    public function order_place(OrderPlaceRequest $request): RedirectResponse
+    public function order_place(OrderPlaceRequest $request)
     {
         try {
             // Begin a database transaction
             DB::beginTransaction();
 
-            $user_id = auth()->user()->id();
+            $user_id = auth()->user()->id;
 
             $address = Address::create([
                 'user_id' => $user_id,
@@ -56,12 +56,12 @@ class OrderController extends Controller
             DB::commit();
 
             // Redirect the user to the order confirmation page
-            return Redirect::route('order.place.success', ['order' => $order])->with('status', 'Order Placed Successfully');
+            return redirect()->route('order.place.success', ['order' => $order])->with('status', 'order-placed');
 
         } catch (\Exception $e) {
             // Something went wrong, rollback the transaction and handle the error
             DB::rollback();
-            return Redirect::back()->withErrors('Error placing order: ' . $e->getMessage());
+            return redirect()->back()->withErrors('Error placing order: ' . $e->getMessage());
         }
     }
 }

@@ -28,7 +28,6 @@ class OrderPlaceRequest extends FormRequest
         $data = $this->all();
         $data['products'] = json_decode($data['products'], true);
         $this->replace($data);
-
         $productIds = array_column($data['products'], 'id');
 
         return [
