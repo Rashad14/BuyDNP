@@ -16,6 +16,7 @@ import AddToWishlist from "./components/Messages/AddToWishlist.vue";
 
 // Cart components
 import ProductDetailsCart from "./components/Cart/ProductDetailsCart.vue";
+import CheckoutCart from "./components/Cart/CheckoutCart.vue";
 import ShoppingCart from "./components/Cart/ShoppingCart.vue";
 import UtilizeCart from "./components/Cart/UtilizeCart.vue";
 import YourCart from "./components/Cart/YourCart.vue";
@@ -36,6 +37,7 @@ app.component('add-to-cart', AddToCart);
 
 // Cart components
 app.component('product-details-cart', ProductDetailsCart);
+app.component('checkout-cart', CheckoutCart);
 app.component('shopping-cart', ShoppingCart);
 app.component('utilize-cart', UtilizeCart);
 app.component('your-cart', YourCart);

@@ -71,3 +71,11 @@ body {
 .font-size-16 {
     font-size: 16px;
 }
+
+.error, .error li {
+    color: #FF0000;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
