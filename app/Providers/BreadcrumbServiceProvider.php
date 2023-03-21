@@ -28,5 +28,24 @@ class BreadcrumbServiceProvider extends ServiceProvider
         Breadcrumbs::for('home', function ($trail) {
             $trail->push('Home', route('home'));
         });
+
+        // Generate breadcrumb for 404
+        Breadcrumbs::for('errors.404', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Not Found');
+        });
+
+        // Generate breadcrumb for 404
+        Breadcrumbs::for('product.details', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Product Not Found');
+        });
+
+        // Generate breadcrumb for 404
+        Breadcrumbs::for('products.by.cat', function ($trail) {
+            $trail->parent('home');
+            $trail->push('Category Not Found');
+        });
+
     }
 }

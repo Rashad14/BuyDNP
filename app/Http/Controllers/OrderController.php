@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use App\Models\Order;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\OrderPlaceRequest;
-use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {

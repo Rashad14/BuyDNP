@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\View\View;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 class HomeController extends Controller
 {
@@ -35,17 +35,6 @@ class HomeController extends Controller
         });
 
         return view('faq.faq');
-    }
-
-    public function not_found():View
-    {
-        // Generate breadcrumb for about
-        Breadcrumbs::for('not.found', function ($trail) {
-            $trail->parent('home');
-            $trail->push('404 | NOT FOUND', route('not.found'));
-        });
-
-        return view('404.404');
     }
 
     public function about(): View

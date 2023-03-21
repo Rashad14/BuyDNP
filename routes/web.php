@@ -54,7 +54,6 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 // Static page Routes
 Route::get('/faq', [\App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
-Route::get('/404', [\App\Http\Controllers\HomeController::class, 'not_found'])->name('not.found');
 Route::get('/shopping-cart', [\App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/wishlist', [\App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');

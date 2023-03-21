@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Category;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
@@ -16,31 +17,39 @@ class ProductController extends Controller
      */
     public function details($slug)
     {
-        // Get product by a slug from the products
-        $product = Product::with('category')->where('slug', $slug)->firstOrFail();
+        try {
+            // Get product by a slug from the products
+            $product = Product::with('category')->where('slug', $slug)->firstOrFail();
 
-        // Get product description from the product
-        $firstSentence = self::description($product->description);
+            // Get product description from the product
+            $firstSentence = self::description($product->description);
 
-        //Get last six related products from the products
-        $related_products = Product::with('category')->where('category_id', $product->category_id)->latest()->take(6)->get();
+            //Get last six related products from the products
+            $related_products = Product::with('category')->where('category_id', $product->category_id)
+                ->latest()
+                ->take(6)
+                ->get();
 
-        // Get last three products from the products
-        $top_products = Product::latest()->take(3)->get();
+            // Get last three products from the products
+            $top_products = Product::latest()->take(3)->get();
 
-        // Generate breadcrumb for single product
-        Breadcrumbs::for('product.details', function ($trail) use ($product) {
-            $trail->parent('home');
-            $trail->push($product->category->name, route('products.by.cat', $product->category->slug));
-            $trail->push($product->name, route('product.details', $product->slug));
-        });
+            // Generate breadcrumb for single product
+            Breadcrumbs::for('product.details', function ($trail) use ($product) {
+                $trail->parent('home');
+                $trail->push($product->category->name, route('products.by.cat', $product->category->slug));
+                $trail->push($product->name, route('product.details', $product->slug));
+            });
 
-        return view('product.product', [
+            return view('product.product', [
                 'product' => $product,
                 'firstSentence' => $firstSentence,
                 'top_products' => $top_products,
                 'related_products' => $related_products
             ]);
+
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
     }
 
     /**
@@ -70,7 +79,9 @@ class ProductController extends Controller
             Breadcrumbs::register('products.by.cat', function ($trail) use ($category, $subcategory) {
                 $trail->push('home', route('home'));
                 $trail->push($category->name, route('products.by.cat', [$category->slug]));
-                $trail->push($subcategory->name, route('products.by.cat', [$subcategory->slug, $subcategory->slug]));
+                $trail->push($subcategory->name, route('products.by.cat',
+                    [$subcategory->slug, $subcategory->slug]
+                ));
             });
 
             // Return view for products under subcategory

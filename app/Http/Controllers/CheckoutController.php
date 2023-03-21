@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 class CheckoutController extends Controller
 {
