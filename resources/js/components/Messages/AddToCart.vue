@@ -14,7 +14,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="modal-product-img">
-                                            <img :src="'storage/' +product.image" :alt="product.name">
+                                            <img :src="'/storage/' +product.image" :alt="product.name">
                                         </div>
                                         <div class="modal-product-info">
                                             <h6><a :href="product.slug">{{product.name}}</a></h6>

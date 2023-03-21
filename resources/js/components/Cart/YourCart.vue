@@ -8,7 +8,7 @@
             <div v-if="cartProducts.length" class="mini-cart-product-area ltn__scrollbar">
                 <div  v-for="(product, index) in cartProducts" :key="product.id" class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a :href="product.slug"><img :src="'storage/' +product.image" :alt="product.name"></a>
+                        <a :href="product.slug"><img :src="'/storage/' +product.image" :alt="product.name"></a>
                         <span class="mini-cart-item-delete"><i class="icon-cancel" @click="removeFromCart(index)"></i></span>
                     </div>
                     <div class="mini-cart-info">

@@ -18,7 +18,7 @@
                                     <tr v-for="(product, index) in wishlistProducts" :key="product.id">
                                         <td class="cart-product-remove" @click="removeFromWishlist(index)">x</td>
                                         <td class="cart-product-image">
-                                            <a :href="product.slug"><img :src="'storage/' +product.image" alt="#"></a>
+                                            <a :href="product.slug"><img :src="'/storage/' +product.image" alt="#"></a>
                                         </td>
                                         <td class="cart-product-info">
                                             <h4><a :href="product.slug">{{product.name}}</a></h4>
