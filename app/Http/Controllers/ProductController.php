@@ -60,59 +60,63 @@ class ProductController extends Controller
 
     public function productsByCat(Request $request, $category, $subcategory = null)
     {
-        // Get the selected sorting option from the request
-        $sortOption = $request->input('sort');
+        try {
+            // Get the selected sorting option from the request
+            $sortOption = $request->input('sort');
 
-        if (!is_null($category) && !is_null($subcategory)) {
-            // Retrieve products by subcategory
-            $subcategory = Category::where('slug', $subcategory)->firstOrFail();
-            $category = Category::where('slug', $category)->firstOrFail();
-            $productsQuery = $subcategory->products();
+            if (!is_null($category) && !is_null($subcategory)) {
+                // Retrieve products by subcategory
+                $subcategory = Category::where('slug', $subcategory)->firstOrFail();
+                $category = Category::where('slug', $category)->firstOrFail();
+                $productsQuery = $subcategory->products();
 
-            // Filter the products
-            self::filter($sortOption, $productsQuery);
+                // Filter the products
+                self::filter($sortOption, $productsQuery);
 
-            // Get the paginated products with the selected sorting option applied
-            $products = $productsQuery->paginate(12);
+                // Get the paginated products with the selected sorting option applied
+                $products = $productsQuery->paginate(12);
 
-            // Generate breadcrumb for subcategory
-            Breadcrumbs::register('products.by.cat', function ($trail) use ($category, $subcategory) {
-                $trail->push('home', route('home'));
-                $trail->push($category->name, route('products.by.cat', [$category->slug]));
-                $trail->push($subcategory->name, route('products.by.cat',
-                    [$subcategory->slug, $subcategory->slug]
-                ));
-            });
+                // Generate breadcrumb for subcategory
+                Breadcrumbs::register('products.by.cat', function ($trail) use ($category, $subcategory) {
+                    $trail->push('home', route('home'));
+                    $trail->push($category->name, route('products.by.cat', [$category->slug]));
+                    $trail->push($subcategory->name, route('products.by.cat',
+                        [$subcategory->slug, $subcategory->slug]
+                    ));
+                });
 
-            // Return view for products under subcategory
-            return view('shop.shop', [
-                'products' => $products,
-                'route' => $request->url(),
-                'sortOption' => $sortOption
-            ]);
-        } else {
-            // Retrieve products by category
-            $category = Category::where('slug', $category)->firstOrFail();
-            $productsQuery = $category->products();
+                // Return view for products under subcategory
+                return view('shop.shop', [
+                    'products' => $products,
+                    'route' => $request->url(),
+                    'sortOption' => $sortOption
+                ]);
+            } else {
+                // Retrieve products by category
+                $category = Category::where('slug', $category)->firstOrFail();
+                $productsQuery = $category->products();
 
-            // Filter the products
-            self::filter($sortOption, $productsQuery);
+                // Filter the products
+                self::filter($sortOption, $productsQuery);
 
-            // Get the paginated products with the selected sorting option applied
-            $products = $productsQuery->paginate(12);
+                // Get the paginated products with the selected sorting option applied
+                $products = $productsQuery->paginate(12);
 
-            // Generate breadcrumb for category
-            Breadcrumbs::for('products.by.cat', function ($trail) use($category) {
-                $trail->parent('home');
-                $trail->push($category->name, route('products.by.cat', $category->slug));
-            });
+                // Generate breadcrumb for category
+                Breadcrumbs::for('products.by.cat', function ($trail) use ($category) {
+                    $trail->parent('home');
+                    $trail->push($category->name, route('products.by.cat', $category->slug));
+                });
 
-            // Return view for products under category
-            return view('shop.shop', [
-                'products' => $products,
-                'route' => $request->url(),
-                'sortOption' => $sortOption
-            ]);
+                // Return view for products under category
+                return view('shop.shop', [
+                    'products' => $products,
+                    'route' => $request->url(),
+                    'sortOption' => $sortOption
+                ]);
+            }
+        } catch (ModelNotFoundException $e) {
+            abort(404);
         }
     }
 
