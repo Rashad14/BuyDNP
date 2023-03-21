@@ -14,6 +14,8 @@
                     </address>
                 </div>
             @endforeach
+            <div class="col-12 learts-mb-30 text-center {{$addresses->count() > 0 ? 'd-none' : ''}}">To add your Billing/Shipping Address, please place your first order with us.
+                <br>Once your order is placed, you will be able to view and manage your address from your account dashboard.</div>
         </div>
     </div>
 </div>
