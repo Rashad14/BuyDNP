@@ -34,6 +34,9 @@ const store = createStore({
         removeFromCart(state, index) {
             state.cart.splice(index, 1);
         },
+        clearCart(state) {
+            state.cart = [];
+        }
     },
     getters: {
         cartItemCount(state) {

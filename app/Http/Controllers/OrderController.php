@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Address;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\OrderPlaceRequest;
 use Illuminate\Support\Facades\Redirect;
 
@@ -41,14 +41,14 @@ class OrderController extends Controller
                 'order_notes' => $request->input('order_notes'),
             ]);
 
-            $products = json_decode($request->input('products'));
+            $products = $request->input('products');
 
             foreach ($products as $product) {
                 $orderProduct = OrderProduct::create([
                     'order_id' => $order->id,
-                    'product_id' => $product->id,
-                    'quantity' => $product->quantity,
-                    'price' => $product->price,
+                    'product_id' => $product['id'],
+                    'quantity' => $product['quantity'],
+                    'price' => $product['price'],
                 ]);
             }
 
@@ -56,7 +56,10 @@ class OrderController extends Controller
             DB::commit();
 
             // Redirect the user to the order confirmation page
-            return redirect()->route('order.place.success', ['order' => $order])->with('status', 'order-placed');
+            return redirect()
+                ->route('order.place.success', ['order' => $order])
+                ->with('status', 'order-placed')
+                ->with('order', $order);
 
         } catch (\Exception $e) {
             // Something went wrong, rollback the transaction and handle the error

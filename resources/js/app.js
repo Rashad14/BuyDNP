@@ -19,6 +19,7 @@ import ProductDetailsCart from "./components/Cart/ProductDetailsCart.vue";
 import CheckoutCart from "./components/Cart/CheckoutCart.vue";
 import ShoppingCart from "./components/Cart/ShoppingCart.vue";
 import UtilizeCart from "./components/Cart/UtilizeCart.vue";
+import ClearCart from "./components/Cart/ClearCart.vue";
 import YourCart from "./components/Cart/YourCart.vue";
 import MiniCart from "./components/Cart/MiniCart.vue";
 
@@ -40,6 +41,7 @@ app.component('product-details-cart', ProductDetailsCart);
 app.component('checkout-cart', CheckoutCart);
 app.component('shopping-cart', ShoppingCart);
 app.component('utilize-cart', UtilizeCart);
+app.component('clear-cart', ClearCart);
 app.component('your-cart', YourCart);
 app.component('mini-cart', MiniCart);
 
