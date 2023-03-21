@@ -15,11 +15,9 @@ class OrderController extends Controller
         //To get the customer's order and show it in the read view bread
         $order = Order::with('address', 'order_products.product')->where('id', $id)->first();
 
-        $statusConstants = Order::getStatusConstants();
-
         return view('vendor.voyager.orders.read', [
             'order' => $order,
-            'statusConstants' => $statusConstants
+            'statusConstants' => Order::getStatusConstants()
         ]);
     }
 
