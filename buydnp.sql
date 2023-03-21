@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 04:06 PM
+-- Generation Time: Mar 22, 2023 at 12:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -48,7 +48,8 @@ CREATE TABLE `addresses` (
 
 INSERT INTO `addresses` (`id`, `user_id`, `country`, `phone`, `address`, `apartment`, `city`, `state`, `zip`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 7, 'Poland', '+48571381144', '50 Şamil Əzizbəyov, Baku', 'some apartment here 14', 'Kraków', 'Azerbaijan', '31-881', '2023-03-21 08:42:14', '2023-03-21 08:42:14', NULL),
-(2, 7, 'Sweden', '+48571381144', '50 Şamil Əzizbəyov, Baku', 'some apartment here 14', 'Kraków', 'Azerbaijan', '31-881', '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL);
+(2, 7, 'Sweden', '+48571381144', '50 Şamil Əzizbəyov, Baku', 'some apartment here 14', 'Kraków', 'Azerbaijan', '31-881', '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL),
+(3, 7, 'Sweden', '+48571381144', '50 Şamil Əzizbəyov, Baku', 'some apartment here 14', 'Kraków', 'Azerbaijan', '31-881', '2023-03-21 14:17:52', '2023-03-21 14:17:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -175,17 +176,19 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (175, 20, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 17),
 (176, 20, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 18),
 (177, 20, 'product_belongsto_category_relationship', 'relationship', 'Category', 1, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
-(191, 23, 'id', 'text', 'Id', 1, 1, 1, 0, 0, 0, '{}', 1),
-(192, 23, 'user_id', 'text', 'User', 1, 1, 1, 0, 0, 0, '{}', 2),
-(193, 23, 'address_id', 'text', 'Address Id', 1, 0, 1, 0, 0, 0, '{}', 4),
-(194, 23, 'total', 'text', 'Total', 1, 1, 1, 0, 0, 0, '{}', 5),
-(195, 23, 'status', 'text', 'Status', 1, 1, 1, 0, 0, 0, '{}', 6),
-(196, 23, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 7),
-(197, 23, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
-(198, 23, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 9),
-(199, 23, 'order_belongsto_user_relationship', 'relationship', 'User', 1, 1, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
-(200, 23, 'order_belongsto_address_relationship', 'relationship', 'Addresses', 1, 0, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\Address\",\"table\":\"addresses\",\"type\":\"hasOne\",\"column\":\"id\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
-(201, 23, 'order_hasmany_order_product_relationship', 'relationship', 'Products', 1, 0, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\OrderProduct\",\"table\":\"order_products\",\"type\":\"hasMany\",\"column\":\"order_id\",\"key\":\"id\",\"label\":\"product_id\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11);
+(191, 23, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(192, 23, 'user_id', 'text', 'User', 1, 1, 1, 0, 0, 0, '{}', 3),
+(193, 23, 'address_id', 'text', 'Address Id', 1, 0, 1, 0, 0, 0, '{}', 9),
+(194, 23, 'total', 'text', 'Total', 1, 1, 1, 0, 0, 0, '{}', 7),
+(195, 23, 'status', 'text', 'Status', 1, 1, 1, 0, 0, 0, '{}', 5),
+(196, 23, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 11),
+(197, 23, 'updated_at', 'timestamp', 'Updated At', 0, 0, 1, 0, 0, 0, '{}', 12),
+(198, 23, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 13),
+(199, 23, 'order_belongsto_user_relationship', 'relationship', 'User', 1, 1, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(200, 23, 'order_belongsto_address_relationship', 'relationship', 'Addresses', 1, 0, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\Address\",\"table\":\"addresses\",\"type\":\"belongsTo\",\"column\":\"address_id\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
+(201, 23, 'order_hasmany_order_product_relationship', 'relationship', 'Products', 1, 0, 1, 0, 0, 0, '{\"model\":\"App\\\\Models\\\\OrderProduct\",\"table\":\"order_products\",\"type\":\"hasMany\",\"column\":\"order_id\",\"key\":\"id\",\"label\":\"product_id\",\"pivot_table\":\"addresses\",\"pivot\":\"0\",\"taggable\":\"0\"}', 6),
+(202, 23, 'uuid', 'text', 'Order', 1, 1, 1, 0, 0, 0, '{}', 2),
+(203, 23, 'order_notes', 'text', 'Order Notes', 0, 0, 1, 0, 0, 0, '{}', 8);
 
 -- --------------------------------------------------------
 
@@ -223,7 +226,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2023-03-08 22:05:50', '2023-03-08 22:05:50'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2023-03-08 22:05:50', '2023-03-08 22:05:50'),
 (20, 'products', 'products', 'Product', 'Products', 'voyager-window-list', 'App\\Models\\Product', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2023-03-10 11:54:26', '2023-03-16 04:34:53'),
-(23, 'orders', 'orders', 'Order', 'Orders', 'voyager-data', 'App\\Models\\Order', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-03-18 05:32:48', '2023-03-18 06:05:27');
+(23, 'orders', 'orders', 'Order', 'Orders', 'voyager-data', 'App\\Models\\Order', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-03-18 05:32:48', '2023-03-21 11:22:16');
 
 -- --------------------------------------------------------
 
@@ -381,8 +384,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `uuid`, `user_id`, `address_id`, `total`, `status`, `order_notes`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '606162772', 7, 1, '694.00', 'pending', 'some order notes here', '2023-03-21 08:42:14', '2023-03-21 08:42:14', NULL),
-(2, '1157398346', 7, 2, '57.00', 'pending', 'some order notes here', '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL);
+(1, '606162772', 7, 1, '694.00', 'processing', 'some order notes here', '2023-03-21 08:42:14', '2023-03-21 17:46:34', NULL),
+(2, '1157398346', 7, 2, '57.00', 'pending', 'some order notes here', '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL),
+(3, '1431407049', 7, 3, '348.00', 'pending', 'some order notes here', '2023-03-21 14:17:52', '2023-03-21 14:17:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -410,7 +414,8 @@ INSERT INTO `order_products` (`id`, `order_id`, `product_id`, `price`, `quantity
 (2, 1, 4, '219.00', 1, '2023-03-21 08:42:14', '2023-03-21 08:42:14', NULL),
 (3, 1, 3, '70.00', 1, '2023-03-21 08:42:14', '2023-03-21 08:42:14', NULL),
 (4, 1, 2, '57.00', 1, '2023-03-21 08:42:14', '2023-03-21 08:42:14', NULL),
-(5, 2, 2, '57.00', 1, '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL);
+(5, 2, 2, '57.00', 1, '2023-03-21 08:57:51', '2023-03-21 08:57:51', NULL),
+(6, 3, 1, '348.00', 1, '2023-03-21 14:17:52', '2023-03-21 14:17:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -680,7 +685,8 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `slug`, `price`, `descripti
 (1, 1, 'DNP Dinitrophenol 200mg 100cps', 'dnp-dinitrophenol-200mg-100cps', 34800, '<p><strong>Buy DNP | Buy Dnp UK | Buy Dnp Canada</strong></p>\r\n<p>2,4-Dinitrophenol (DNP) is a supplement commonly used for fast and extreme weight loss in high-level bodybuilders (but is now gaining popularity with the general pollution as well).</p>', 'products\\March2023\\Uz4XeiIxNR2OFVfkKbGB.jpg', '[\"products\\\\March2023\\\\JhsOJMZFRh14SdstgAMf.jpg\"]', 1, 'DNP 200mg 100cps', 'Honest Chem', NULL, NULL, NULL, '2023-03-16 04:33:52', '2023-03-16 08:43:35', NULL),
 (2, 3, 'Boldeno 250', 'boldeno-250', 5700, '<div id=\"product-product\" class=\"container\">\r\n<div class=\"row\">\r\n<div id=\"content\" class=\"col-sm-9\">\r\n<div class=\"product-info-details-more\">\r\n<div class=\"tab-content\">\r\n<div id=\"tab-description\" class=\"tab-pane active\">\r\n<p>Boldenone Undecylenate 250 mg/ml.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'products\\March2023\\L9DF5YRhB3Jxai2LVzl7.jpg', '[\"products\\\\March2023\\\\xLI9NBzdwEXUaGG3WFBy.jpg\"]', 1, 'Boldeno 250', 'Body Research Labs', NULL, NULL, NULL, '2023-03-16 07:17:59', '2023-03-17 05:06:39', NULL),
 (3, 3, 'BP Anabolics Stack 150', 'bp-anabolics-stack-150', 7000, '<p>Trenbolone Acetate 50 mg/ml.&nbsp;Testosterone Propionate 50mg/ml. Drostanolone Propionate 50 mg/ml.</p>', 'products\\March2023\\SElKMcLl0463ZRwiEFTB.jpg', '[\"products\\\\March2023\\\\DBebP4ndGGPd6C8o8Snr.jpg\"]', 1, 'Anabolic Stack 150', 'Barba Pharma', NULL, NULL, NULL, '2023-03-16 08:39:25', '2023-03-17 04:46:25', NULL),
-(4, 1, 'DNP Dinitrophenol 200mg 50cps', 'dnp-dinitrophenol-200mg-50cps', 21900, '<p>2,4-Dinitrophenol (DNP) is a supplement commonly used for fast and extreme weight loss in high-level bodybuilders (but is now gaining popularity with the general pollution as well). It is originally used as an explosive, a pesticide, as well as a range of other industrial processes including- dye, wood preserver, herbicide and photographic developer.</p>', 'products\\March2023\\8XzAZxlh50M98BnxjvF5.jpg', '[\"products\\\\March2023\\\\u3QxRTUcahFkj7miBvHi.jpg\"]', 1, 'Honest Chem', 'Honest Chem', NULL, NULL, NULL, '2023-03-16 08:43:09', '2023-03-16 08:43:09', NULL);
+(4, 1, 'DNP Dinitrophenol 200mg 50cps', 'dnp-dinitrophenol-200mg-50cps', 21900, '<p>2,4-Dinitrophenol (DNP) is a supplement commonly used for fast and extreme weight loss in high-level bodybuilders (but is now gaining popularity with the general pollution as well). It is originally used as an explosive, a pesticide, as well as a range of other industrial processes including- dye, wood preserver, herbicide and photographic developer.</p>', 'products\\March2023\\8XzAZxlh50M98BnxjvF5.jpg', '[\"products\\\\March2023\\\\u3QxRTUcahFkj7miBvHi.jpg\"]', 1, 'Honest Chem', 'Honest Chem', NULL, NULL, NULL, '2023-03-16 08:43:09', '2023-03-16 08:43:09', NULL),
+(5, 3, 'TrenoPump 250', 'trenopump-250', 9400, '<div id=\"product-product\" class=\"container\">\r\n<div class=\"row\">\r\n<div id=\"content\" class=\"col-sm-9\">\r\n<div class=\"product-info-details-more\">\r\n<div class=\"tab-content\">\r\n<div id=\"tab-description\" class=\"tab-pane active\">\r\n<div class=\"product-short-description\">\r\n<p>Trenbolone Enanthate 250 mg/ml</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'products\\March2023\\C7d8oZqlA7mcKNEs5T5b.jpg', '[\"products\\\\March2023\\\\7ZSh24b70hTjqMlcginy.jpg\"]', 1, 'TrenoPump 250', 'Pumping Iron Labs', NULL, NULL, NULL, '2023-03-21 19:54:59', '2023-03-21 19:54:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -815,7 +821,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$.5WPSmWi01eU2RdVHh.YMOwktGLIx/50dMCc33V5AbMboTP3zbz2O', 'EwK0B4By9onCRA5PYGT8cz77rmrHFp6xQKF3FGz1tbnKw6ROnoUaTX8yu0je', NULL, '2023-03-08 22:05:50', '2023-03-08 22:05:50'),
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$.5WPSmWi01eU2RdVHh.YMOwktGLIx/50dMCc33V5AbMboTP3zbz2O', 'Yrqj9gdFiiarHjPDVPJkQFmFvn9zv0qsaCNp14buvocybAruW5le8gJiHO5k', NULL, '2023-03-08 22:05:50', '2023-03-08 22:05:50'),
 (6, 2, 'User Test', 'user@gmail.com', 'users/default.png', NULL, '$2y$10$1v8SHQwmRwTljkViv6hro.2okP8oBQ8q.coqtAZeIllk7PfQuegDm', NULL, NULL, '2023-03-09 21:44:22', '2023-03-09 23:18:42'),
 (7, 2, 'user1 test', 'user1@gmail.com', 'users/default.png', NULL, '$2y$10$L2PrLwi4SLlTZIwgRCSNreG51pkjsJMsuw8J6InIqm0ZbckgQ6Ifq', NULL, NULL, '2023-03-20 13:39:52', '2023-03-20 13:39:52');
 
@@ -997,7 +1003,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1009,7 +1015,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT for table `data_types`
@@ -1045,13 +1051,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1081,7 +1087,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `roles`
