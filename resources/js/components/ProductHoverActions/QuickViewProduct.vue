@@ -15,7 +15,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="modal-product-img">
-                                            <img :src="'storage/' +product.image" :alt="product.name">
+                                            <img :src="'/storage/' +product.image" :alt="product.name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">

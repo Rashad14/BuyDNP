@@ -68,7 +68,7 @@ class ProductController extends Controller
                 // Retrieve products by subcategory
                 $subcategory = Category::where('slug', $subcategory)->firstOrFail();
                 $category = Category::where('slug', $category)->firstOrFail();
-                $productsQuery = $subcategory->products();
+                $productsQuery = $subcategory->products()->with('category');
 
                 // Filter the products
                 self::filter($sortOption, $productsQuery);
@@ -94,7 +94,7 @@ class ProductController extends Controller
             } else {
                 // Retrieve products by category
                 $category = Category::where('slug', $category)->firstOrFail();
-                $productsQuery = $category->products();
+                $productsQuery = $category->products()->with('category');
 
                 // Filter the products
                 self::filter($sortOption, $productsQuery);

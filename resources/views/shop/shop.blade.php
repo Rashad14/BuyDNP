@@ -16,6 +16,10 @@
 
                         @include('shop.partials.product_list')
 
+                        @if(!$products->count() > 0)
+                            <div class="text-center text-gray-900"><strong>There are currently no products available in this category.</strong></div>
+                        @endif
+
                     </div>
 
                     @include('shop.partials.pagination_area')
