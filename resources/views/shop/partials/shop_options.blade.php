@@ -10,7 +10,7 @@
         </li>
         <li>
             <div class="short-by text-center">
-                <form action="{{ route('shop') }}" method="GET" id="sort-form">
+                <form action="{{ $route }}" method="GET" id="sort-form">
                     <select name="sort" id="sort">
                         <option value="default">Default sorting</option>
                         <option value="low_high" {{ $sortOption == 'low_high' ? 'selected' : '' }}>Sort by price: low to high</option>

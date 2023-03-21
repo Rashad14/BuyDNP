@@ -45,7 +45,7 @@
                                                 <img src="{{Storage::url($product->product->image)}}" alt="" width="35" class="img-fluid">
                                             </div>
                                             <div class="flex-lg-grow-1 ms-3">
-                                                <h6 class="small mb-0"><a href="#" class="text-reset">{{$product->product->name}}</a></h6>
+                                                <h6 class="small mb-0"><a href="{{route('product.details', ['product' => $product->product->slug])}}" class="text-reset" target="_blank">{{$product->product->name}}</a></h6>
                                                 <span class="small">Brand: {{$product->product->name}}</span>
                                             </div>
                                         </div>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <!-- SLIDER AREA START (slider-3) -->
     @include('home.partials.slider_area')
     <!-- SLIDER AREA END -->

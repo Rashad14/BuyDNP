@@ -59,7 +59,6 @@ class OrderPlaceRequest extends FormRequest
                     $attributeIndex = array_search($attribute, array_column($this->input('products'), 'price', 'id'));
                     $product = Product::find($productIds[$attributeIndex] ?? null);
                     if ($product && $attributeIndex !== false && $value != ($product->price * 100)) {
-                        dd($product->price);
                         $fail('Invalid product price');
                     }
                 }

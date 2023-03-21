@@ -49,13 +49,22 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function productsByCat($category, $subcategory = null)
+    public function productsByCat(Request $request, $category, $subcategory = null)
     {
+        // Get the selected sorting option from the request
+        $sortOption = $request->input('sort');
+
         if (!is_null($category) && !is_null($subcategory)) {
             // Retrieve products by subcategory
             $subcategory = Category::where('slug', $subcategory)->firstOrFail();
             $category = Category::where('slug', $category)->firstOrFail();
-            $products = $subcategory->products()->get();
+            $productsQuery = $subcategory->products();
+
+            // Filter the products
+            self::filter($sortOption, $productsQuery);
+
+            // Get the paginated products with the selected sorting option applied
+            $products = $productsQuery->paginate(12);
 
             // Generate breadcrumb for subcategory
             Breadcrumbs::register('products.by.cat', function ($trail) use ($category, $subcategory) {
@@ -66,12 +75,20 @@ class ProductController extends Controller
 
             // Return view for products under subcategory
             return view('shop.shop', [
-                'products' => $products
+                'products' => $products,
+                'route' => $request->url(),
+                'sortOption' => $sortOption
             ]);
         } else {
             // Retrieve products by category
             $category = Category::where('slug', $category)->firstOrFail();
-            $products = $category->products()->get();
+            $productsQuery = $category->products();
+
+            // Filter the products
+            self::filter($sortOption, $productsQuery);
+
+            // Get the paginated products with the selected sorting option applied
+            $products = $productsQuery->paginate(12);
 
             // Generate breadcrumb for category
             Breadcrumbs::for('products.by.cat', function ($trail) use($category) {
@@ -81,7 +98,9 @@ class ProductController extends Controller
 
             // Return view for products under category
             return view('shop.shop', [
-                'products' => $products
+                'products' => $products,
+                'route' => $request->url(),
+                'sortOption' => $sortOption
             ]);
         }
     }
@@ -100,18 +119,8 @@ class ProductController extends Controller
         // Get the products query with the selected sorting option applied
         $productsQuery = Product::with('category');
 
-        switch ($sortOption) {
-            case 'low_high':
-                $productsQuery->sortByPrice('asc');
-                break;
-            case 'high_low':
-                $productsQuery->sortByPrice('desc');
-                break;
-            default:
-                // Default sorting (by ID)
-                $productsQuery->orderBy('category_id', 'desc');
-                break;
-        }
+        // Filter the products
+        self::filter($sortOption, $productsQuery);
 
         // Get the paginated products with the selected sorting option applied
         $products = $productsQuery->paginate(12);
@@ -125,6 +134,7 @@ class ProductController extends Controller
         // Pass the sorting option to the view
         return view('shop.shop', [
             'products' => $products,
+            'route' => $request->url(),
             'sortOption' => $sortOption
         ]);
     }
@@ -153,5 +163,27 @@ class ProductController extends Controller
 
         return $firstSentence; // Output: This is the first sentence.
 
+    }
+
+    /**
+     *
+     * Display a listing of the resource.
+     *
+     */
+
+    public function filter($sortOption, $productsQuery)
+    {
+        switch ($sortOption) {
+            case 'low_high':
+                $productsQuery->sortByPrice('asc');
+                break;
+            case 'high_low':
+                $productsQuery->sortByPrice('desc');
+                break;
+            default:
+                // Default sorting (by ID)
+                $productsQuery->orderBy('category_id', 'desc');
+                break;
+        }
     }
 }

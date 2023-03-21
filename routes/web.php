@@ -38,6 +38,10 @@ require __DIR__.'/auth.php';
 // Voyager Routes
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    // Your overwrites here
+    Route::get('orders/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'order']);
+    Route::post('/update-order-status', [\App\Http\Controllers\Admin\OrderController::class, 'update_status'])->name('update.order.status');
 });
 
 //|--------------------------------------------------------------------------
