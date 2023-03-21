@@ -10,13 +10,16 @@ class CheckoutController extends Controller
 {
     public function checkout(): View
     {
+        //To get the user's last address and show it in the checkout page
+        $address = auth()->user()?->addresses()->latest()->first();
+
         // Generate breadcrumb for checkout
         Breadcrumbs::for('checkout', function ($trail) {
             $trail->parent('home');
             $trail->push('Checkout', route('checkout'));
         });
 
-        return view('checkout.checkout');
+        return view('checkout.checkout', ['address' => $address]);
     }
 
     public function order_place_success(): View

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePostRequest;
 use App\Models\Address;
 use App\Models\Order;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
-    public function order_place(OrderPlaceRequest $request)
+    public function order_place(OrderPlaceRequest $request): RedirectResponse
     {
         try {
             // Begin a database transaction
@@ -24,6 +24,7 @@ class OrderController extends Controller
             $address = Address::create([
                 'user_id' => $user_id,
                 'country' => $request->input('country'),
+                'phone' => $request->input('phone'),
                 'address' => $request->input('address'),
                 'apartment' => $request->input('apartment'),
                 'city' => $request->input('city'),
@@ -34,6 +35,7 @@ class OrderController extends Controller
             $orderTotal = $request->input('total');
 
             $order = Order::create([
+                'uuid' => mt_rand(),
                 'user_id' => $user_id,
                 'address_id' => $address->id,
                 'status' => 'pending',

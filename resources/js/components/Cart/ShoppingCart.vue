@@ -41,7 +41,7 @@
                     </td>
                 </tr>
                 </tbody>
-                <tbody>
+                <tbody v-else>
                     <tr>
                         <td class="text-center">Your shopping cart is empty!</td>
                     </tr>

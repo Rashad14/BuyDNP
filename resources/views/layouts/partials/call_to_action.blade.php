@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
                     <div class="coll-to-info text-color-white">
-                        <h1>Buy medical disposable face mask <br> to protect your loved ones</h1>
+                        <h1>DNP Crystal | DNP Capsules | DNP Online | <br> Buy DNP Uk | Buy DNP USA</h1>
                     </div>
                     <div class="btn-wrapper">
                         <a class="btn btn-effect-3 btn-white" href="{{route('shop')}}">Explore Products <i class="icon-next"></i></a>

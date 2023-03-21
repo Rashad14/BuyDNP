@@ -8,7 +8,14 @@
                         <h6>Country</h6>
                         <div class="input-item">
                             <x-input-error class="error" :messages="$errors->get('country')" />
-                            <input type="text" placeholder="Country" name="country" value="{{old('country')}}">
+                            <input type="text" placeholder="Country" name="country" value="{{old('country') ?? $address->country ?? ''}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h6>Phone</h6>
+                        <div class="input-item">
+                            <x-input-error class="error" :messages="$errors->get('phone')" />
+                            <input type="text" placeholder="Phone" name="phone" value="{{old('phone') ?? $address->phone ?? ''}}">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
@@ -17,13 +24,13 @@
                             <div class="col-md-6">
                                 <div class="input-item">
                                     <x-input-error class="error" :messages="$errors->get('address')" />
-                                    <input type="text" placeholder="House number and street name" name="address" value="{{old('address')}}">
+                                    <input type="text" placeholder="House number and street name" name="address" value="{{old('address') ?? $address->address ?? ''}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-item">
                                     <x-input-error class="error" :messages="$errors->get('apartment')" />
-                                    <input type="text" placeholder="Apartment, suite, unit etc. (optional)" name="apartment" value="{{old('apartment')}}">
+                                    <input type="text" placeholder="Apartment, suite, unit etc. (optional)" name="apartment" value="{{old('apartment') ?? $address->apartment ?? ''}}">
                                 </div>
                             </div>
                         </div>
@@ -32,21 +39,21 @@
                         <h6>Town / City</h6>
                         <div class="input-item">
                             <x-input-error class="error" :messages="$errors->get('city')" />
-                            <input type="text" placeholder="City" name="city" value="{{old('city')}}">
+                            <input type="text" placeholder="City" name="city" value="{{old('city') ?? $address->city ?? ''}}">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <h6>State </h6>
                         <div class="input-item">
                             <x-input-error class="error" :messages="$errors->get('state')" />
-                            <input type="text" placeholder="State" name="state" value="{{old('state')}}">
+                            <input type="text" placeholder="State" name="state" value="{{old('state') ?? $address->state ?? ''}}">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <h6>Zip</h6>
                         <div class="input-item">
                             <x-input-error class="error" :messages="$errors->get('zip')" />
-                            <input type="text" placeholder="Zip" name="zip" value="{{old('zip')}}">
+                            <input type="text" placeholder="Zip" name="zip" value="{{old('zip') ?? $address->zip ?? ''}}">
                         </div>
                     </div>
                 </div>

@@ -12,27 +12,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Jun 22, 2019</td>
-                    <td>Pending</td>
-                    <td>$3000</td>
-                    <td><a href="cart.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Nov 22, 2019</td>
-                    <td>Approved</td>
-                    <td>$200</td>
-                    <td><a href="cart.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Jan 12, 2020</td>
-                    <td>On Hold</td>
-                    <td>$990</td>
-                    <td><a href="cart.html">View</a></td>
-                </tr>
+                @foreach($orders as $order)
+                    <tr>
+                        <td>#{{$order->uuid}}</td>
+                        <td>{{$order->created_at}}</td>
+                        <td>{{$order->status}}</td>
+                        <td>${{$order->total}}</td>
+                        <td><a href="{{route('order.view', ['uuid' => $order->uuid])}}">View</a></td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

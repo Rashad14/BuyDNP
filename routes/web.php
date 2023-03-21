@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     // Order Routes
     Route::post('/order-place', [\App\Http\Controllers\OrderController::class, 'order_place'])->name('order.place');
+    Route::get('/order-view/{uuid}', [\App\Http\Controllers\ProfileController::class, 'order_view'])->name('order.view');
     Route::get('/order-place-success', [\App\Http\Controllers\CheckoutController::class, 'order_place_success'])->name('order.place.success');
 });
 

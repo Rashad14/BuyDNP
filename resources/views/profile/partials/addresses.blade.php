@@ -2,24 +2,18 @@
     <div class="ltn__myaccount-tab-content-inner">
         <p>The following addresses will be used on the checkout page by default.</p>
         <div class="row">
-            <div class="col-md-6 col-12 learts-mb-30">
-                <h4>Billing Address <small><a href="#">edit</a></small></h4>
-                <address>
-                    <p><strong>Alex Tuntuni</strong></p>
-                    <p>1355 Market St, Suite 900 <br>
-                        San Francisco, CA 94103</p>
-                    <p>Mobile: (123) 456-7890</p>
-                </address>
-            </div>
-            <div class="col-md-6 col-12 learts-mb-30">
-                <h4>Shipping Address <small><a href="#">edit</a></small></h4>
-                <address>
-                    <p><strong>Alex Tuntuni</strong></p>
-                    <p>1355 Market St, Suite 900 <br>
-                        San Francisco, CA 94103</p>
-                    <p>Mobile: (123) 456-7890</p>
-                </address>
-            </div>
+            @foreach($addresses as $address)
+                <div class="col-md-6 col-12 learts-mb-30">
+                    <h4>Billing/Shipping Address <small><a href="#" class="d-none">edit</a></small></h4>
+                    <address>
+                        <p class="m-0"><strong>{{auth()->user()->name}}</strong></p>
+                        <p class="m-0">{{$address->country}}, {{$address->city}}, {{$address->state}}, {{$address->zip}}</p>
+                        <p class="m-0">{{$address->address}} <br>
+                            {{$address->apartment}}</p>
+                        <p>Mobile: {{$address->phone}}</p>
+                    </address>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

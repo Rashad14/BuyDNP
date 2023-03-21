@@ -36,6 +36,7 @@ return array(
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\OrderPlaceRequest' => $baseDir . '/app/Http/Requests/OrderPlaceRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
+    'App\\Http\\Requests\\StorePostRequest' => $baseDir . '/app/Http/Requests/StorePostRequest.php',
     'App\\Models\\Address' => $baseDir . '/app/Models/Address.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\OrderProduct' => $baseDir . '/app/Models/OrderProduct.php',

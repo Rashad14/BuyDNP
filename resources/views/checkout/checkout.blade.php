@@ -18,6 +18,15 @@
 {{--                        </div>--}}
 {{--                    @endif--}}
 
+                    @auth()
+                        @if($address)
+                            <p class="alert-warning p-4">To make things easier for you, we have automatically filled in your address information from your last order.
+                                <br>If this information is different from what you need for your current order, please feel free to update it.</p>
+                        @endif
+                    @else
+                        <p class="alert-danger p-4">You will be asked to <a href="{{ route('login') }}"><strong>Log in</strong></a> before placing your order.</p>
+                    @endif
+
                     @include('checkout.partials.billing_details')
 
                     @include('checkout.partials.payment_method')

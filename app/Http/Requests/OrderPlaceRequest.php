@@ -40,6 +40,7 @@ class OrderPlaceRequest extends FormRequest
 
         return [
             'country' => 'required|string',
+            'phone' => 'required|integer|regex:/^[0-9\s()+-]+$/',
             'address' => 'required|string',
             'apartment' => 'nullable|string',
             'city' => 'required|string',
