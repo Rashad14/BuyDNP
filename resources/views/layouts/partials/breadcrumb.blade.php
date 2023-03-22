@@ -8,10 +8,15 @@
                         @if (Breadcrumbs::exists())
                             {{ Breadcrumbs::render() }}
                         @else
-                            <ul class="">
-                                <li class=""><a href="{{route('home')}}"><span class="ltn__secondary-color"><i
-                                                class="fas fa-home"></i></span> Home </a></li>
-                                <li class="">Not Found</li>
+                            <ul>
+                                <li>
+                                    <a href="{{route('home')}}">
+                                        <span class="ltn__secondary-color">
+                                            <i class="fas fa-home"></i>
+                                        </span> Home
+                                    </a>
+                                </li>
+                                <li>Not Found</li>
                             </ul>
                         @endif
                     </div>
