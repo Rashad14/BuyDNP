@@ -5,7 +5,15 @@
             <div class="col-lg-12">
                 <div class="ltn__breadcrumb-inner">
                     <div class="ltn__breadcrumb-list">
-                        {{ Breadcrumbs::render() }}
+                        @if (Breadcrumbs::exists())
+                            {{ Breadcrumbs::render() }}
+                        @else
+                            <ul class="">
+                                <li class=""><a href="{{route('home')}}"><span class="ltn__secondary-color"><i
+                                                class="fas fa-home"></i></span> Home </a></li>
+                                <li class="">Not Found</li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>
